@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 body {
   font-family: "Lora", serif;
   color: black;
@@ -464,7 +464,7 @@ body {
   }
 
 =======
-body {
+/* body {
   font-family: "Lora", serif;
   color: black;
   text-align: center;
@@ -473,7 +473,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-}
+} */
 
 #mavvy:hover {
   color: white;
@@ -928,5 +928,5 @@ body {
     padding: 25px;
   }
 
->>>>>>> 396b17bbf48c2ccec97a5c9ce9b1c532d6795f7a
+
 }
