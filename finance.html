@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUSACO HOLDINGS NIGERIA LIMITED | Finance</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue:#123f86;
+      --blue-dark:#082a5e;
+      --blue-light:#eaf2ff;
+      --orange:#ff9800;
+      --orange-dark:#e78300;
+      --white:#fff;
+      --text:#26364a;
+      --muted:#68778a;
+      --light:#f6f9fd;
+      --shadow:0 15px 40px rgba(18,63,134,.10);
+    }
+
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:#fff;
+      font-family:'Be Vietnam Pro',sans-serif;
+      line-height:1.7;
+    }
+    h1,h2,h3,h4{font-family:'Lora',serif}
+    a{text-decoration:none}
+
+    /* NAVBAR */
+    .navbar{
+      background:rgba(255,255,255,.97)!important;
+      box-shadow:0 4px 25px rgba(0,0,0,.08);
+      padding:10px 0;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    .brand-wrap{display:flex;align-items:center;gap:10px}
+    .brand-wrap img{width:62px;height:62px;object-fit:contain}
+    .brand-name{
+      color:var(--blue);
+      font-weight:800;
+      font-size:20px;
+      line-height:1.15;
+    }
+    .brand-name span{color:var(--orange)}
+    .navbar-nav{gap:3px}
+    .nav-link{
+      color:var(--blue)!important;
+      font-weight:600;
+      padding:10px 12px!important;
+      border-radius:8px;
+      transition:.25s;
+    }
+    .nav-link:hover,.nav-link.active{
+      color:var(--white)!important;
+      background:var(--blue);
+    }
+    .dropdown-menu{
+      border:0;
+      box-shadow:var(--shadow);
+      border-radius:12px;
+      padding:8px;
+    }
+    .dropdown-item{
+      border-radius:7px;
+      padding:9px 14px;
+      font-weight:500;
+    }
+    .dropdown-item:hover{background:var(--blue-light);color:var(--blue)}
+
+    /* HERO */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      min-height:650px;
+      display:flex;
+      align-items:center;
+      background:
+        radial-gradient(circle at 90% 20%,rgba(255,152,0,.30),transparent 28%),
+        linear-gradient(135deg,var(--blue-dark),var(--blue));
+      color:#fff;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      width:500px;height:500px;
+      right:-230px;bottom:-260px;
+      border:90px solid rgba(255,152,0,.13);
+      border-radius:50%;
+    }
+    .hero-content{position:relative;z-index:2}
+    .eyebrow{
+      display:inline-block;
+      background:rgba(255,152,0,.16);
+      color:#ffc15b;
+      border:1px solid rgba(255,193,91,.35);
+      padding:7px 16px;
+      border-radius:30px;
+      font-weight:700;
+      letter-spacing:1px;
+      font-size:13px;
+      margin-bottom:18px;
+    }
+    .hero h1{
+      font-size:clamp(42px,6vw,78px);
+      font-weight:700;
+      line-height:1.05;
+      margin-bottom:18px;
+    }
+    .hero h1 span{color:var(--orange)}
+    .hero-lead{
+      font-size:clamp(18px,2vw,24px);
+      color:#dfeaff;
+      max-width:720px;
+    }
+    .hero-text{
+      max-width:760px;
+      color:#eaf1fc;
+    }
+    .btn-main,.btn-outline-main{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:13px 24px;
+      border-radius:8px;
+      font-weight:700;
+      transition:.25s;
+      margin:5px;
+    }
+    .btn-main{
+      color:#fff;
+      background:var(--orange);
+      border:2px solid var(--orange);
+    }
+    .btn-main:hover{background:var(--orange-dark);border-color:var(--orange-dark);color:#fff;transform:translateY(-2px)}
+    .btn-outline-main{
+      color:#fff;
+      border:2px solid rgba(255,255,255,.7);
+    }
+    .btn-outline-main:hover{background:#fff;color:var(--blue)}
+
+    /* SECTIONS */
+    .section{padding:85px 0}
+    .section-light{background:var(--light)}
+    .section-title{text-align:center;margin-bottom:50px}
+    .section-title .small-title{
+      color:var(--orange);
+      font-size:14px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+    .section-title h2{
+      color:var(--blue);
+      font-size:clamp(30px,4vw,45px);
+      font-weight:700;
+      margin:7px 0 12px;
+    }
+    .section-title p{
+      max-width:760px;
+      margin:auto;
+      color:var(--muted);
+    }
+
+    /* INTRO */
+    .intro-box{
+      background:#fff;
+      border-radius:22px;
+      padding:45px;
+      box-shadow:var(--shadow);
+      border-left:6px solid var(--orange);
+    }
+    .intro-box h2{color:var(--blue);font-weight:700}
+    .intro-box strong{color:var(--blue)}
+
+    /* CARDS */
+    .feature-card{
+      height:100%;
+      background:#fff;
+      padding:32px 25px;
+      border-radius:18px;
+      border:1px solid #e7edf5;
+      box-shadow:0 8px 28px rgba(18,63,134,.07);
+      transition:.3s;
+      position:relative;
+      overflow:hidden;
+    }
+    .feature-card:before{
+      content:"";
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:4px;
+      background:var(--orange);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:.3s;
+    }
+    .feature-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 18px 40px rgba(18,63,134,.13);
+    }
+    .feature-card:hover:before{transform:scaleX(1)}
+    .icon-box{
+      width:64px;height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:15px;
+      background:var(--blue-light);
+      color:var(--blue);
+      font-size:27px;
+      margin-bottom:20px;
+    }
+    .feature-card:nth-child(even) .icon-box{background:#fff3df;color:var(--orange)}
+    .feature-card h3{color:var(--blue);font-size:23px;margin-bottom:10px}
+    .feature-card p{color:var(--muted);margin:0}
+
+    /* ADVANTAGE */
+    .advantage{
+      background:linear-gradient(135deg,#f7fbff,#eef5ff);
+    }
+
+    /* STORY */
+    .story-img{
+      width:100%;
+      min-height:380px;
+      object-fit:cover;
+      border-radius:22px;
+      box-shadow:var(--shadow);
+    }
+    .story-content{padding:15px 10px}
+    .story-content h3{color:var(--orange);font-size:30px}
+    .story-list{list-style:none;padding:0;margin-top:25px}
+    .story-list li{
+      padding:10px 0;
+      font-weight:600;
+      color:var(--blue);
+    }
+    .story-list i{color:var(--orange);margin-right:10px}
+
+    /* STATS */
+    .stat{
+      background:#fff;
+      padding:30px 15px;
+      border-radius:16px;
+      box-shadow:0 8px 25px rgba(0,0,0,.06);
+      text-align:center;
+      height:100%;
+    }
+    .stat h3{
+      color:var(--blue);
+      font-size:42px;
+      margin:0;
+      font-weight:700;
+    }
+    .stat p{margin:5px 0 0;color:var(--muted)}
+
+    /* QUOTE */
+    .quote{
+      background:linear-gradient(135deg,var(--blue-dark),var(--blue));
+      color:#fff;
+      padding:70px 25px;
+      text-align:center;
+      border-radius:24px;
+      position:relative;
+      overflow:hidden;
+    }
+    .quote h2{font-size:clamp(25px,4vw,40px);max-width:850px;margin:auto}
+    .quote p{color:#ffb544;font-weight:800;margin-top:18px;letter-spacing:1px}
+
+    /* CTA */
+    .cta{
+      background:#fff7ea;
+      text-align:center;
+      padding:75px 20px;
+    }
+    .cta h2{color:var(--blue);font-size:40px}
+    .cta p{max-width:750px;margin:10px auto 25px;color:var(--muted)}
+
+    /* FOOTER */
+    footer{
+      background:var(--blue-dark);
+      color:#dce7f8;
+      padding-top:65px;
+    }
+    footer .brand-name{color:#fff}
+    footer .brand-name span{color:var(--orange)}
+    footer h5{color:#fff;font-family:'Be Vietnam Pro',sans-serif;font-weight:700;margin-bottom:18px}
+    footer p{color:#c5d2e6}
+    .footer-links{list-style:none;padding:0}
+    .footer-links li{margin:8px 0}
+    .footer-links a{color:#cbd8ea;transition:.2s}
+    .footer-links a:hover{color:var(--orange);padding-left:4px}
+    .socials{display:flex;gap:10px}
+    .socials a{
+      width:40px;height:40px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      background:rgba(255,255,255,.1);
+      transition:.25s;
+    }
+    .socials a:hover{background:var(--orange);transform:translateY(-3px)}
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.12);
+      margin-top:45px;
+      padding:20px 0;
+      text-align:center;
+      color:#9fb1c9;
+    }
+    .footer-bottom strong{color:var(--orange)}
+
+    @media(max-width:991px){
+      .navbar-collapse{
+        margin-top:12px;
+        padding:10px;
+        background:#f8fbff;
+        border-radius:12px;
+      }
+      .nav-link{margin:2px 0}
+      .hero{min-height:590px}
+    }
+    @media(max-width:767px){
+      .section{padding:60px 0}
+      .intro-box{padding:28px 22px}
+      .hero{min-height:600px}
+      .hero h1{font-size:45px}
+      .hero-lead{font-size:18px}
+      .story-img{min-height:260px}
+      .cta h2{font-size:30px}
+      .brand-name{font-size:16px}
+      .brand-wrap img{width:50px;height:50px}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand brand-wrap" href="HOME.html">
+      <img src="assets/images/newchat.png" alt="BUSACO Holdings logo">
+      <div class="brand-name">BUSACO HOLDINGS <span>NIG LTD</span></div>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+      aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="petroleum.html">Petroleum</a></li>
+        <li class="nav-item"><a class="nav-link" href="real-estate.html">Real Estate</a></li>
+        <li class="nav-item"><a class="nav-link" href="agriculture.html">Agriculture</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Others</a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#finance">Finance</a></li>
+            <li><a class="dropdown-item" href="#">Import & Export</a></li>
+            <li><a class="dropdown-item" href="#">Investments</a></li>
+            <li><a class="dropdown-item" href="#">Sustainability</a></li>
+            <li><a class="dropdown-item" href="#">News</a></li>
+            <li><a class="dropdown-item" href="#">Careers</a></li>
+            <li><a class="dropdown-item" href="#contact">Contact Us</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <span class="eyebrow">BUSACO HOLDINGS • FINANCE SECTOR</span>
+    <h1>Smart Finance.<br><span>Stronger Futures.</span></h1>
+    <p class="hero-lead">Empowering Growth. Securing the Future.</p>
+    <p class="hero-text">
+      At <strong>BUSACO FINANCE</strong>, we provide smart financial solutions that drive growth,
+      manage risk and create long-term value through responsible investing, strategic planning,
+      innovation and financial advisory.
+    </p>
+    <div class="mt-4">
+      <a href="FINANCE.html" class="btn-main"><i class="fa-solid fa-chart-line"></i> Explore Finances</a>
+      <a href="#contact" class="btn-outline-main"><i class="fa-solid fa-phone"></i> Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="intro-box">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-5">
+          <div class="section-title text-lg-start mb-0">
+            <div class="small-title">Our Approach</div>
+            <h2>Smart Financial Solutions</h2>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            At BUSACO Holdings, finance is more than numbers. It is about creating opportunities,
+            building sustainable businesses and securing long-term value.
+          </p>
+          <p class="mb-0">
+            Through innovation, strategic planning and responsible investment, we help communities
+            and organizations thrive.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="section section-light" id="values">
+  <div class="container">
+    <div class="section-title">
+      <div class="small-title">What Guides Us</div>
+      <h2>Our Core Values</h2>
+      <p>Guiding principles that shape everything we do.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-seedling"></i></div>
+          <h3>Sustainability</h3>
+          <p>Protecting resources and ensuring responsible growth for future generations.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3>Innovation</h3>
+          <p>Embracing modern solutions that drive progress and efficiency.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-handshake"></i></div>
+          <h3>Collaboration</h3>
+          <p>Partnering with stakeholders to create shared success and impact.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Integrity</h3>
+          <p>Building trust through transparency, accountability and ethical practices.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSACO ADVANTAGE -->
+<section class="section advantage">
+  <div class="container">
+    <div class="section-title">
+      <div class="small-title">Why BUSACO</div>
+      <h2>The BUSACO Advantage</h2>
+      <p>Discover what makes BUSACO Holdings stand out in creating opportunities across industries and communities.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-rocket"></i></div>
+          <h3>Innovation</h3>
+          <p>We embrace forward-thinking ideas and modern strategies that drive growth and open new possibilities.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Community Impact</h3>
+          <p>Our initiatives strengthen communities by creating opportunities and supporting sustainable development.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+          <h3>Global Reach</h3>
+          <p>With a vision that extends beyond borders, we explore opportunities across international markets.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <h3>Long-Term Growth</h3>
+          <p>Our strategies are designed to deliver lasting value for businesses, investors and future generations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section" id="finance">
+  <div class="container">
+    <div class="section-title">
+      <div class="small-title">Our Journey</div>
+      <h2>The BUSACO Story</h2>
+      <p>
+        Our journey is built on vision, resilience and a commitment to creating opportunities that last.
+        We combine tradition with innovation and local impact with global reach.
+      </p>
+    </div>
+
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <img src="assets/images/vision.png" class="story-img" alt="BUSACO Vision">
+      </div>
+      <div class="col-lg-6">
+        <div class="story-content">
+          <h3>Our Vision</h3>
+          <p>
+            From humble beginnings to a global outlook, BUSACO has always focused on building
+            sustainable opportunities. Our vision is to empower communities, strengthen industries
+            and create value that endures.
+          </p>
+          <ul class="story-list">
+            <li><i class="fa-solid fa-check"></i> Sustainable Development</li>
+            <li><i class="fa-solid fa-check"></i> Innovative Thinking</li>
+            <li><i class="fa-solid fa-check"></i> Global Partnerships</li>
+            <li><i class="fa-solid fa-check"></i> Long-Term Growth</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-title">
+      <div class="small-title">Our Impact</div>
+      <h2>Creating Opportunities</h2>
+      <p>Creating opportunities that transform lives and industries.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="stat"><h3>10+</h3><p>Years of Sustainable Growth</p></div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stat"><h3>50+</h3><p>Communities Empowered</p></div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stat"><h3>100+</h3><p>Projects Completed</p></div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stat"><h3>∞</h3><p>Opportunities Ahead</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <div class="small-title">Our Promise</div>
+      <h2>Why Choose BUSACO Finance?</h2>
+      <p>Financial solutions designed around trust, innovation, sustainability and lasting value.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-shield-heart"></i></div>
+          <h3>Trust</h3>
+          <p>Reliable financial solutions built on transparency and integrity.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>Innovation</h3>
+          <p>Modern approaches to finance that drive growth and efficiency.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Sustainability</h3>
+          <p>Financial strategies designed for long-term stability and impact.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-coins"></i></div>
+          <h3>Value</h3>
+          <p>Creating lasting economic opportunities for businesses and communities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="container pb-5">
+  <div class="quote">
+    <h2>“Shaping industries. Empowering communities. Building tomorrow.”</h2>
+    <p>BUSACO HOLDINGS</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="small-title">Let's Work Together</div>
+    <h2>Let's Build Financial Futures Together</h2>
+    <p>
+      Whether you are seeking investment opportunities, financial planning or corporate solutions,
+      BUSACO Holdings is ready to guide you.
+    </p>
+    <a href="FINANCE.html" class="btn-main"><i class="fa-solid fa-chart-line"></i> Explore Finances</a>
+    <a href="#contact" class="btn-main"><i class="fa-solid fa-handshake"></i> Partner With Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <a href="HOME.html" class="brand-wrap mb-3">
+          <img src="assets/images/newchat.png" alt="BUSACO Holdings logo">
+          <div class="brand-name">BUSACO HOLDINGS <span>NIG LTD</span></div>
+        </a>
+        <p class="mt-3">
+          Powering industries, growing prosperity and building the future through strategic,
+          sustainable opportunities.
+        </p>
+        <p><i class="fa-regular fa-envelope me-2"></i><strong>Email:</strong> busakabir@gmail.com</p>
+        <p><i class="fa-solid fa-phone me-2"></i><strong>Phone:</strong> +234 8037 730 037, +447 405 864 313</p>
+        <p><i class="fa-solid fa-location-dot me-2"></i><strong>Address:</strong> Busaco Estate, 12B High Street, Grays, RM17 6LU, United Kingdom</p>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="HOME.html">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="petroleum.html">Petroleum</a></li>
+          <li><a href="real-estate.html">Real Estate</a></li>
+          <li><a href="agriculture.html">Agriculture</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <h5>Explore</h5>
+        <ul class="footer-links">
+          <li><a href="#finance">Finance</a></li>
+          <li><a href="#">Import & Export</a></li>
+          <li><a href="#">Investments</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4">
+        <h5>Connect With Us</h5>
+        <p>Follow BUSACO Holdings and stay connected with our journey.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://x.com/" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <strong>Powering Industries. Growing Prosperity. Building the Future.</strong>
+      <br>
+      <small>© 2026 BUSACO Holdings Nigeria Limited. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="BUSACO.js"></script>
+</body>
+</html>

@@ -1,364 +1,1675 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BUSACO Petroleum Holdings Limited</title>
 
-    <title>BUSACO HOLDINGS NIGERIA LIMITED</title>
-
-
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Chelsea+Market&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Montenegrin+Gothic+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="petroleum.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
-        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Be Vietnam Pro", sans-serif;
+            color: #111;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --orange: #ff9800;
+            --orange-dark: #e68900;
+            --blue: #0057b8;
+            --blue-dark: #003b7a;
+            --white: #ffffff;
+            --light: #f5f9ff;
+            --dark: #101820;
+        }
+
+        .section-title {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+            color: var(--blue);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            max-width: 750px;
+            margin: 0 auto 45px;
+        }
+
+        .orange-line {
+            width: 70px;
+            height: 5px;
+            background: var(--orange);
+            margin: 15px auto 25px;
+            border-radius: 20px;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .main-navbar {
+            background: var(--orange);
+            padding: 10px 0;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--blue) !important;
+            font-weight: 800;
+            font-size: 25px;
+        }
+
+        .navbar-brand img {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+        }
+
+        .navbar-toggler {
+            border: 2px solid var(--blue);
+            padding: 7px 10px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            filter: none;
+        }
+
+        .nav-link {
+            color: #111 !important;
+            font-weight: 600;
+            margin: 0 4px;
+            padding: 10px 12px !important;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            background: var(--blue);
+            color: white !important;
+        }
+
+        .nav-link.active-page {
+            background: var(--blue);
+            color: white !important;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            padding: 8px;
+        }
+
+        .dropdown-item {
+            padding: 10px 15px;
+            border-radius: 7px;
+        }
+
+        .dropdown-item:hover {
+            background: var(--orange);
+            color: #111;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 620px;
+            background:
+                linear-gradient(
+                    rgba(0, 46, 92, 0.82),
+                    rgba(0, 46, 92, 0.72)
+                ),
+                url("assets/images/petr.png");
+
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 850px;
+            padding: 70px 0;
+        }
+
+        .hero-small {
+            color: var(--orange);
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(40px, 6vw, 75px);
+            line-height: 1.08;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.8;
+            max-width: 720px;
+            color: #f4f4f4;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-orange {
+            background: var(--orange);
+            color: #111;
+            border: 2px solid var(--orange);
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-orange:hover {
+            background: white;
+            color: var(--blue);
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: var(--blue);
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            padding: 90px 0;
+            background: white;
+        }
+
+        .intro-img {
+            position: relative;
+        }
+
+        .intro-img img {
+            width: 100%;
+            min-height: 380px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .intro-badge {
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+            background: var(--orange);
+            color: #111;
+            padding: 18px 25px;
+            border-radius: 12px;
+            font-weight: 800;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .intro-text {
+            padding: 20px;
+        }
+
+        .intro-text h2 {
+            color: var(--blue);
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+            font-size: 40px;
+        }
+
+        .intro-text h4 {
+            color: var(--orange-dark);
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .intro-text p {
+            line-height: 1.9;
+            color: #555;
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services {
+            background: var(--light);
+            padding: 90px 0;
+        }
+
+        .service-card {
+            background: white;
+            border: none;
+            border-radius: 18px;
+            padding: 35px 25px;
+            height: 100%;
+            box-shadow: 0 8px 30px rgba(0, 60, 120, 0.08);
+            transition: 0.35s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--orange);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 60, 120, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h4 {
+            color: var(--blue);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           WHY BUSACO
+        ========================= */
+
+        .why-us {
+            padding: 90px 0;
+        }
+
+        .why-box {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            border-radius: 15px;
+            background: white;
+            margin-bottom: 20px;
+            box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .why-box:hover {
+            transform: translateX(7px);
+        }
+
+        .why-icon {
+            min-width: 55px;
+            height: 55px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+            font-size: 23px;
+        }
+
+        .why-box h4 {
+            color: var(--blue);
+            font-weight: 800;
+        }
+
+        .why-box p {
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            background:
+                linear-gradient(
+                    rgba(0, 63, 126, 0.95),
+                    rgba(0, 63, 126, 0.95)
+                );
+            padding: 75px 0;
+            color: white;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .stat-box i {
+            color: var(--orange);
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .stat-box h2 {
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .stat-box p {
+            margin: 0;
+            color: #e6e6e6;
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           OPERATIONS
+        ========================= */
+
+        .operations {
+            padding: 90px 0;
+            background: white;
+        }
+
+        .operation-card {
+            border-radius: 18px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .operation-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .operation-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .operation-body {
+            padding: 25px;
+        }
+
+        .operation-body h4 {
+            color: var(--blue);
+            font-weight: 800;
+        }
+
+        .operation-body p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           SUSTAINABILITY
+        ========================= */
+
+        .sustainability {
+            padding: 90px 0;
+            background: var(--light);
+        }
+
+        .sustainability-box {
+            background: var(--blue);
+            color: white;
+            border-radius: 25px;
+            padding: 55px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sustainability-box::after {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: var(--orange);
+            border-radius: 50%;
+            right: -100px;
+            bottom: -130px;
+            opacity: 0.9;
+        }
+
+        .sustainability-box h2 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+        }
+
+        .sustainability-box p {
+            line-height: 1.8;
+            color: #f0f0f0;
+            max-width: 800px;
+        }
+
+
+        /* =========================
+           NEWS
+        ========================= */
+
+        .news {
+            padding: 90px 0;
+        }
+
+        .news-card {
+            border: none;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+        }
+
+        .news-card .card-body {
+            padding: 30px;
+        }
+
+        .news-card h4 {
+            color: var(--blue);
+            font-weight: 800;
+        }
+
+        .news-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            background: var(--orange);
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: var(--blue);
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+            font-size: 40px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 15px auto 30px;
+            font-size: 18px;
+        }
+
+        .btn-blue {
+            background: var(--blue);
+            color: white;
+            padding: 13px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            border: 2px solid var(--blue);
+            transition: 0.3s;
+        }
+
+        .btn-blue:hover {
+            background: white;
+            color: var(--blue);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #ff9800;
+            padding: 65px 0 20px;
+            color: #111;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--blue);
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand img {
+            width: 60px;
+        }
+
+        footer h5 {
+            color: var(--blue);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #111;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--blue);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            width: 42px;
+            height: 42px;
+            background: var(--blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: white;
+            color: var(--blue);
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 991px) {
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .navbar-brand img {
+                width: 55px;
+                height: 55px;
+            }
+
+            .nav-link {
+                margin-top: 3px;
+            }
+
+            .hero {
+                min-height: 560px;
+            }
+
+            .intro-text {
+                margin-top: 40px;
+            }
+
+            .sustainability-box {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .navbar-brand {
+                font-size: 16px;
+                max-width: 230px;
+            }
+
+            .navbar-brand img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero-content {
+                padding: 50px 15px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .intro,
+            .services,
+            .why-us,
+            .operations,
+            .sustainability,
+            .news {
+                padding: 65px 0;
+            }
+
+            .intro-text h2 {
+                font-size: 32px;
+            }
+
+            .stat-box h2 {
+                font-size: 38px;
+            }
+
+            .sustainability-box {
+                padding: 30px 22px;
+            }
+
+            .cta h2 {
+                font-size: 30px;
+            }
+        }
+
+    </style>
 </head>
 
-<body style="color: black;">
+
+<body>
 
 
+    <!-- =========================
+         NAVBAR
+    ========================== -->
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid" style="background-color: #FF9800;">
-            <img src="assets/images/newchat.png" width="80px" alt="">
-            <a style="font-size: 35px; color: blue;" class="nav-link active" aria-current="page" href="HOME.html"><b>
-                    BUSACO
-                    HOLDINGS NIG LTD</b></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg main-navbar">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="HOME.html">
+
+                <img src="assets/images/newchat.png" alt="BUSACO Logo">
+
+                <span>
+                    BUSACO HOLDINGS NIG LTD
+                </span>
+
+            </a>
+
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNav">
+
                 <span class="navbar-toggler-icon"></span>
+
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav" id="navvv">
-
-                    <a id="navvy" class="nav-link" href="HOME.html">Home</a>
-                    <a id="navvy" class="nav-link" href="#abbt">About Us</a>
-                    <a id="navvy" class="nav-link" href="petroleum.html"><b
-                            style="font-size: 30px; color: white;">Petroleum</b></a>
-                    <a id="navvy" class="nav-link" href="real-estate.html">Real Estate</a>
-                    <a id="navvy" class="nav-link" href="agriculture.html">Agriculture</a>
 
 
-                    <li class="nav-item dropdown">
-                        <a id="navvy" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Others
+            <div class="collapse navbar-collapse" id="mainNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="HOME.html">
+                            Home
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a id="mavvy" class="dropdown-item" href="#">Finance</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Import & Export</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Investments</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Sustainability</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">News</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Careers</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#mfoot">Contact Us</a></li>
-                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active-page" href="petroleum.html">
+                            Petroleum
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="real-estate.html">
+                            Real Estate
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="agriculture.html">
+                            Agriculture
+                        </a>
                     </li>
 
 
+                    <li class="nav-item dropdown">
 
-                </div>
+                        <a class="nav-link dropdown-toggle"
+                            href="#"
+                            data-bs-toggle="dropdown">
+
+                            Others
+
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Finance
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Import & Export
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Investments
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Sustainability
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    News
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Careers
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#contact">
+                                    Contact Us
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
             </div>
+
         </div>
+
     </nav>
-    <!-- Header end -->
-
-    <br>
-
-    <!-- hero head -->
-    <p style="text-align: center; font-size: 30px;"><b>Building Sustainable Wealth In <b style="color: blue;">THE
-                PETROLEUM INDUSTRY</b></b></p>
-    <br>
-    <p id="bh"><b style="color: blue;">BUSACO PETROLEUM HOLDINGS LIMITED</b> is a prominent company committed to
-        delivering excellence in
-        <b style="color: blue;">MAINLY PETROLEUM</b> for the daily needs of the masses.
-    </p>
-
-    <br><br>
-    <!-- Buttons -->
-    <div style="text-align: center;">
-        <a href="HOME.html">
-            <button id="mybu" class="col-sm-3">Explore Our Businesses</button>
-        </a>
 
 
-        <a href="#mfoot">
 
+    <!-- =========================
+         HERO
+    ========================== -->
 
-            <button id="mybu" class="col-sm-3">Contact Us</button>
-        </a>
-    </div>
+    <section class="hero">
 
+        <div class="container">
 
-    <!-- About Us -->
+            <div class="hero-content">
 
-    <br><br>
-    <div id="abbt">
-        <p style="font-size: 25px;"><b><u>About Us</u></b></p>
-        <p style="text-align: left; padding-left: 5px; font-size: 20px; color: blue;"><b>Who We Are</b></p>
-        <p style="font-size: 20px; max-width: 95%; padding-left: 5px;"><b>BUSACO PETROLEUM HOLDINGS LIMITED</b> is a
-            prominent organization focused on creating sustainable value across multiple industries. Our operations
-            are built on integrity, innovation, quality, and customer satisfaction.
-            </b>
+                <div class="hero-small">
+                    BUSACO PETROLEUM
+                </div>
 
-            <b>Our mission</b> is to build businesses that create opportunities, empower communities, and contribute to
-            long-term national and global development.
-        </p>
+                <h1>
+                    Powering Industries.
+                    <span>Fueling Progress.</span>
+                </h1>
 
-        <p style="font-size: 20px; max-width: 95%; padding-left: 5px;">We are dedicated to delivering reliable services
-            while contributing to economic growth and community development.
+                <p>
+                    BUSACO Petroleum Holdings Limited is committed to
+                    delivering reliable petroleum solutions while creating
+                    sustainable value for businesses, communities and
+                    future generations.
+                </p>
 
-        </p>
+                <div class="hero-buttons">
 
-        <!-- Buttons -->
-        <div style="text-align: center;">
-            <button id="mybu" class="col-sm-3">Read More</button>
+                    <a href="#services"
+                        class="btn btn-orange">
+                        Explore Our Services
+                    </a>
+
+                    <a href="#contact"
+                        class="btn btn-outline-white">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
 
-
-
-    </div>
-    <br><br>
-    <hr>
-
-    <!-- Why Choose Us -->
-    <p style="font-size: 25px;"><b><u>Why Choose BUSACO PETROLEUM?</u></b></p>
-    <ul>
-        <li style="color: blue;">
-            <p style="text-align: left; padding-left: 5px; font-size: 20px; color: blue;"><b>QUALITY</b></p>
-        </li>
-    </ul>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">We maintain world-class standards
-        in every project.
-    </p>
-
-    <br>
-
-
-    <ul>
-        <li style="color: blue;">
-            <p style="text-align: left; padding-left: 5px; font-size: 20px; color: blue;"><b>INNOVATION</b></p>
-        </li>
-    </ul>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">We embrace modern technology and
-        creative solutions.
-    </p>
-
-    <br>
-
-
-    <ul>
-        <li style="color: blue;">
-            <p style="text-align: left; padding-left: 5px; font-size: 20px; color: blue;"><b>INTEGRITY</b></p>
-        </li>
-    </ul>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">We conduct business with honesty
-        and transparency.</p>
-
-    <br>
-
-
-    <ul>
-        <li style="color: blue;">
-            <p style="text-align: left; padding-left: 5px; font-size: 20px; color: blue;"><b>SUSTAINABILITY</b></p>
-        </li>
-    </ul>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">We build businesses that benefit
-        future generations.</p>
-
-    <br>
-
-    <!-- Our Mission -->
-    <p style="font-size: 25px;"><b><u>Our Mission</u></b></p>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">To provide world-class products
-        and services while creating sustainable opportunities for our customers, employees, and communities.</p>
-
-    <hr><br>
+    </section>
 
 
 
-    <!-- Our Vision -->
-    <p style="font-size: 25px;"><b><u>Our Vision</u></b></p>
+    <!-- =========================
+         ABOUT PETROLEUM
+    ========================== -->
 
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">To become one of Africa's leading
-        diversified business groups recognized for excellence, innovation, and sustainable growth.
-    </p>
+    <section class="intro" id="about">
 
-    <hr>
-    <br>
+        <div class="container">
 
+            <div class="row align-items-center g-5">
 
-    <!-- Our Core Values -->
-    <p style="font-size: 25px;"><b><u>Our Core Values</u></b></p>
+                <div class="col-lg-6">
 
-    <br>
+                    <div class="intro-img">
 
+                        <img src="assets/images/lan.png"
+                            alt="BUSACO Petroleum Operations">
 
-    <div class="container py-5">
-        <div class="row g-4">
+                        <div class="intro-badge">
+                            Energy & Petroleum
+                        </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h4>Integrity</h4>
-                        <p>We conduct every business transaction with honesty, transparency, and the highest ethical
-                            standards.</p>
                     </div>
+
                 </div>
+
+
+                <div class="col-lg-6">
+
+                    <div class="intro-text">
+
+                        <h2>
+                            About BUSACO Petroleum
+                        </h2>
+
+                        <div class="orange-line"
+                            style="margin-left:0;">
+                        </div>
+
+                        <h4>
+                            Building Sustainable Wealth in the
+                            Petroleum Industry
+                        </h4>
+
+                        <p>
+                            BUSACO Petroleum Holdings Limited is a
+                            prominent company focused on creating
+                            sustainable value through petroleum-related
+                            activities and energy solutions.
+                        </p>
+
+                        <p>
+                            Our approach is built around quality,
+                            integrity, innovation, operational efficiency
+                            and customer satisfaction.
+                        </p>
+
+                        <p>
+                            We aim to contribute to a stronger energy
+                            ecosystem by supporting reliable petroleum
+                            supply and creating opportunities across the
+                            value chain.
+                        </p>
+
+                        <a href="#services"
+                            class="btn btn-blue mt-3">
+
+                            Discover More
+
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h4>Excellence</h4>
-                        <p>We strive for excellence by consistently delivering high-quality products, services, and
-                            customer experiences.</p>
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section class="services" id="services">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Our Petroleum Services
+            </h2>
+
+            <div class="orange-line"></div>
+
+            <p class="section-subtitle">
+                Our petroleum activities are designed to support
+                efficient energy supply while delivering dependable
+                solutions to customers and business partners.
+            </p>
+
+
+            <div class="row g-4">
+
+
+                <!-- Service 1 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-oil-well"></i>
+                        </div>
+
+                        <h4>
+                            Petroleum Supply
+                        </h4>
+
+                        <p>
+                            Supporting the reliable supply of petroleum
+                            products for businesses, industries and
+                            consumers.
+                        </p>
+
                     </div>
+
                 </div>
+
+
+                <!-- Service 2 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+
+                        <h4>
+                            Petroleum Distribution
+                        </h4>
+
+                        <p>
+                            Efficient distribution solutions designed
+                            to help petroleum products reach their
+                            intended destinations safely and reliably.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Service 3 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+
+                        <h4>
+                            Storage Solutions
+                        </h4>
+
+                        <p>
+                            Supporting petroleum storage operations
+                            focused on efficiency, organization and
+                            dependable supply management.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Service 4 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-industry"></i>
+                        </div>
+
+                        <h4>
+                            Energy Solutions
+                        </h4>
+
+                        <p>
+                            Developing solutions that support the energy
+                            requirements of businesses and communities.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Service 5 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+
+                        <h4>
+                            Strategic Partnerships
+                        </h4>
+
+                        <p>
+                            Building strong relationships with customers,
+                            suppliers and strategic partners across the
+                            petroleum sector.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Service 6 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+
+                        <h4>
+                            Petroleum Investments
+                        </h4>
+
+                        <p>
+                            Exploring opportunities that create
+                            sustainable long-term value within the
+                            petroleum and energy sector.
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h4>Innovation</h4>
-                        <p>We embrace creativity and modern technologies to develop innovative solutions that drive
-                            sustainable growth.</p>
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         WHY BUSACO
+    ========================== -->
+
+    <section class="why-us">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Why Choose BUSACO Petroleum?
+            </h2>
+
+            <div class="orange-line"></div>
+
+            <p class="section-subtitle">
+                We combine responsible business practices with
+                innovation, quality and customer-focused solutions.
+            </p>
+
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6">
+
+                    <div class="why-box">
+
+                        <div class="why-icon">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Quality
+                            </h4>
+
+                            <p>
+                                We maintain high standards across our
+                                petroleum activities and services.
+                            </p>
+
+                        </div>
+
                     </div>
+
+
+                    <div class="why-box">
+
+                        <div class="why-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Innovation
+                            </h4>
+
+                            <p>
+                                We embrace modern technology and creative
+                                solutions to improve our operations.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="why-box">
+
+                        <div class="why-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Integrity
+                            </h4>
+
+                            <p>
+                                We conduct our business with honesty,
+                                accountability and transparency.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="why-box">
+
+                        <div class="why-icon">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Sustainability
+                            </h4>
+
+                            <p>
+                                We seek to create lasting value while
+                                considering communities and the
+                                environment.
+                            </p>
+
+                        </div>
+
+                    </div>
+
                 </div>
+
+
+                <div class="col-lg-6">
+
+                    <div class="p-4">
+
+                        <h3 class="fw-bold text-primary mb-4">
+                            Our Commitment
+                        </h3>
+
+                        <p style="line-height:1.9; color:#555; font-size:17px;">
+
+                            At BUSACO Petroleum Holdings Limited,
+                            our commitment goes beyond supplying
+                            petroleum products.
+
+                        </p>
+
+                        <p style="line-height:1.9; color:#555; font-size:17px;">
+
+                            We strive to build a petroleum business
+                            that contributes to economic development,
+                            supports businesses and creates opportunities
+                            for the communities we serve.
+
+                        </p>
+
+                        <p style="line-height:1.9; color:#555; font-size:17px;">
+
+                            Through responsible operations and strong
+                            partnerships, we are working toward a
+                            sustainable future in the energy industry.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="container py-5">
-                <div class="row g-4">
+        </div>
 
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                        <div class="card shadow h-100">
-                            <div class="card-body">
-                                <h4>Accountability</h4>
-                                <p>We take responsibility for our actions, honor our commitments, and deliver on our
-                                    promises with professionalism.</p>
-                            </div>
-                        </div>
+    </section>
+
+
+
+    <!-- =========================
+         STATISTICS
+    ========================== -->
+
+    <section class="stats">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-lg-3 col-6">
+
+                    <div class="stat-box">
+
+                        <i class="fa-solid fa-calendar-check"></i>
+
+                        <h2>
+                            15+
+                        </h2>
+
+                        <p>
+                            Years of Experience
+                        </p>
+
                     </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                        <div class="card shadow h-100">
-                            <div class="card-body">
-                                <h4>Sustainability</h4>
-                                <p>We are committed to responsible business practices that protect the environment and
-                                    create lasting value for future generations.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                        <div class="card shadow h-100">
-                            <div class="card-body">
-                                <h4>Customer Satisfaction</h4>
-                                <p>We place our customers at the heart of everything we do, delivering reliable
-                                    solutions that exceed expectations.</p>
-                            </div>
-                        </div>
-                    </div>
-
 
                 </div>
+
+
+                <div class="col-lg-3 col-6">
+
+                    <div class="stat-box">
+
+                        <i class="fa-solid fa-diagram-project"></i>
+
+                        <h2>
+                            500+
+                        </h2>
+
+                        <p>
+                            Projects Completed
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-3 col-6">
+
+                    <div class="stat-box">
+
+                        <i class="fa-solid fa-users"></i>
+
+                        <h2>
+                            100+
+                        </h2>
+
+                        <p>
+                            Business Partners
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-3 col-6">
+
+                    <div class="stat-box">
+
+                        <i class="fa-solid fa-globe"></i>
+
+                        <h2>
+                            10+
+                        </h2>
+
+                        <p>
+                            Business Sectors
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
 
+        </div>
 
-            <section class="container py-5">
+    </section>
 
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold text-primary">Our Achievements</h2>
-                    <p class="text-muted">
-                        Delivering excellence across industries with measurable results.
-                    </p>
+
+
+    <!-- =========================
+         OPERATIONS
+    ========================== -->
+
+    <section class="operations">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Our Petroleum Operations
+            </h2>
+
+            <div class="orange-line"></div>
+
+            <p class="section-subtitle">
+                Creating dependable solutions across key areas of
+                petroleum and energy operations.
+            </p>
+
+
+            <div class="row g-4">
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="operation-card">
+
+                        <img src="assets/images/lan.png"
+                            alt="Petroleum Storage">
+
+                        <div class="operation-body">
+
+                            <h4>
+                                Storage & Supply
+                            </h4>
+
+                            <p>
+                                Supporting organized petroleum storage
+                                and reliable product availability for
+                                customers and business partners.
+                            </p>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="row g-4">
 
-                    <!-- Counter 1 -->
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="counter-box counter-one">
-                            <h1 class="display-2 fw-bold">15+</h1>
-                            <h4>Years of Experience</h4>
-                            <p>Delivering trusted services with excellence and integrity.</p>
-                        </div>
-                    </div>
+                <div class="col-lg-4 col-md-6">
 
-                    <!-- Counter 2 -->
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="counter-box counter-two">
-                            <h1 class="display-2 fw-bold">500+</h1>
-                            <h4>Projects Completed</h4>
-                            <p>Successfully executed projects across diverse industries.</p>
-                        </div>
-                    </div>
+                    <div class="operation-card">
 
-                    <!-- Counter 3 -->
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="counter-box counter-three">
-                            <h1 class="display-2 fw-bold">100+</h1>
-                            <h4>Business Partners</h4>
-                            <p>Building strong partnerships that create lasting value.</p>
-                        </div>
-                    </div>
+                        <img src="assets/images/lan.png"
+                            alt="Petroleum Distribution">
 
-                    <!-- Counter 4 -->
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="counter-box counter-four">
-                            <h1 class="display-2 fw-bold">10+</h1>
-                            <h4>Business Sectors</h4>
-                            <p>Diversified operations driving sustainable growth.</p>
+                        <div class="operation-body">
+
+                            <h4>
+                                Distribution
+                            </h4>
+
+                            <p>
+                                Developing efficient distribution
+                                solutions to support the movement of
+                                petroleum products.
+                            </p>
+
                         </div>
+
                     </div>
 
                 </div>
 
-            </section>
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="operation-card">
+
+                        <img src="assets/images/lan.png"
+                            alt="Energy Investment">
+
+                        <div class="operation-body">
+
+                            <h4>
+                                Energy Investments
+                            </h4>
+
+                            <p>
+                                Identifying strategic opportunities that
+                                support sustainable growth within the
+                                petroleum and energy industry.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-            <div class="text-center mb-5">
-                <h2 class="fw-bold text-primary">Latest News</h2>
-                <p class="text-muted">
-                    Stay updated with the latest developments, projects and achievements at BUSACO Petroleum Holdings
-                    Limited.
+
+    <!-- =========================
+         SUSTAINABILITY
+    ========================== -->
+
+    <section class="sustainability">
+
+        <div class="container">
+
+            <div class="sustainability-box">
+
+                <h2>
+                    Petroleum With a Sustainable Future
+                </h2>
+
+                <div class="orange-line"
+                    style="margin-left:0;">
+                </div>
+
+                <p>
+                    We recognize the importance of responsible business
+                    practices in the petroleum industry. BUSACO is
+                    committed to building operations that create
+                    economic value while supporting responsible
+                    environmental and community practices.
                 </p>
+
+                <a href="#contact"
+                    class="btn btn-orange mt-3">
+                    Partner With Us
+                </a>
+
             </div>
 
-            <div class="text-center row g-4">
+        </div>
 
-                <!-- CARD 1 -->
-                <div class="col-lg-12 col-md-12 col-12">
+    </section>
 
-                    <div class="card news-card h-100 border-0 shadow">
 
-                        <div class="news-img">
-                            <img src="assets/images/lan.png" class="img-fluid" alt="">
-                        </div>
+
+    <!-- =========================
+         NEWS
+    ========================== -->
+
+    <section class="news">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Latest Petroleum News
+            </h2>
+
+            <div class="orange-line"></div>
+
+            <p class="section-subtitle">
+                Stay updated with BUSACO Petroleum's latest
+                developments, projects and achievements.
+            </p>
+
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-8">
+
+                    <div class="news-card">
+
+                        <img src="assets/images/lan.png"
+                            alt="BUSACO Petroleum News">
 
                         <div class="card-body">
 
@@ -366,16 +1677,20 @@
                                 Petroleum
                             </span>
 
-                            <h4 class="fw-bold">
-                                BUSACO Launches New Petroleum Storage Facility
+                            <h4>
+                                BUSACO Strengthens Petroleum Operations
                             </h4>
 
-                            <p class="text-muted">
-                                Our state-of-the-art petroleum storage facility enhances operational efficiency and
-                                strengthens energy supply across the region.
+                            <p class="mt-3">
+                                BUSACO Petroleum Holdings Limited
+                                continues to develop its petroleum
+                                operations with a focus on reliability,
+                                efficiency, customer satisfaction and
+                                sustainable growth.
                             </p>
 
-                            <a href="#" class="btn btn-warning fw-bold">
+                            <a href="#"
+                                class="btn btn-orange">
                                 Read More →
                             </a>
 
@@ -389,544 +1704,245 @@
 
         </div>
 
-    </div>
+    </section>
+
+
+
+    <!-- =========================
+         CALL TO ACTION
+    ========================== -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>
+                Let's Build the Future of Energy Together
+            </h2>
+
+            <p>
+                Whether you are looking for petroleum solutions,
+                strategic partnerships or investment opportunities,
+                BUSACO is ready to connect with you.
+            </p>
+
+            <a href="#contact"
+                class="btn btn-blue">
+                Contact BUSACO Petroleum
+            </a>
+
+        </div>
 
     </section>
 
 
 
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer id="contact">
+
+        <div class="container">
+
+            <div class="row g-5">
 
 
-    <br>
+                <!-- Company -->
 
+                <div class="col-lg-4">
 
+                    <div class="footer-brand">
 
+                        <img src="assets/images/newchat.png"
+                            alt="BUSACO Logo">
 
+                        BUSACO HOLDINGS NIG LTD
 
-
-
-    <!-- footer -->
-    <section id="mfoot" style="background-color: #FF9800;">
-        <footer class="footer-section text-black" style="background-color: #FF9800;">
-            <div class="container" style="background-color: #FF9800;">
-                <div class="row g-4">
-                    <div class="col-lg-4 text-black">
-                        <a class="navbar-brand d-flex align-items-center mb-3" href="#">
-                            <img src="assets/images/newchat.png" width="70px" alt="">
-                            <a id="blg" style="font-size: 20px; color: blue;" class="nav-link active"
-                                aria-current="page" href="HOME.html"><b> BUSACO HOLDINGS NIG LTD</b></a>
-                        </a>
-                        <p class="mb-2"><i class="fa-regular fa-envelope me-2"></i><b>Email:</b> busakabir@gmail.com</p>
-                        <p class="mb-2"><i class="fa-solid fa-phone me-2"></i><b>Phone:</b> +234 8037 730 037, +447 405
-                            864 313</p>
-                        <p><i class="fa-solid fa-location-dot me-2"></i><b>Address:</b> Busaco Estate,
-                            12B High street
-                            Grays, <br>
-                            RM17, 6LU, 
-                            United Kingdom</p>
-                    </div>
-                    <div class="col-6 col-lg-2 offset-lg-2 col-md-12 text-black"><b>
-                            <a href="Home.html" id="bnav" style="color: blue;">Home</h6>
-                                <a href="petroleum.html" id="bnav" style="color: blue;">Petroleum</a>
-                                <a href="online.html" id="bnav" style="color: blue;">Real Estate</a>
-                                <a href="#testimonials" id="bnav" style="color: blue;">Import & Export</a>
-                                <a href="#testimonials" id="bnav" style="color: blue;">Sustainabilty</a>
-                                <a href="#testimonials" id="bnav" style="color: blue;">Careers</a>
-                                <a href="#pricing" id="bnav" style="color: blue;">Our FAQ</a></b>
-                    </div>
-                    <div class="col-6 col-lg-2 col-md-12"><b>
-                            <a href="#abbt" id="bnav" style="color: blue;">About Us</h6>
-                                <a href="#" id="bnav" style="color: blue;">Agriculture</a>
-                                <a href="#" id="bnav" style="color: blue;">Finance</a>
-                                <a href="#" id="bnav" style="color: blue;">Investments</a>
-                                <a href="#" id="bnav" style="color: blue;">News</a>
-                                <a href="#" id="bnav" style="color: blue;">Contact Us</a></b>
                     </div>
 
-                    <div class="col-lg-2 text-black">
-                        <h6 style="color: black;">Social Profiles</h6>
-                        <div class="d-flex gap-2">
-
-                            <a href="https://www.facebook.com/photo.php?fbid=122166461390890505&set=pb.61576715161181.-2207520000&type=3"
-                                class="footer-social"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="whatsapp.com" class="footer-social"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="instagram.com" class="footer-social"><i class="fa-brands fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-bottom">
-                        <p style="color: blue;"><b>Powering Industries. Growing Prosperity. Building the Future.</b></p>
-                    </div>
-                </div>
-        </footer>
-
-        <script src="BUSACO.js"></script>
-    </section>
-</body>
-
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>BUSACO HOLDINGS NIGERIA LIMITED</title>
-
-
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Chelsea+Market&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Montenegrin+Gothic+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="petroleum.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
-        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<body style="color: black;">
-
-
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid" style="background-color: #FF9800;">
-            <img src="assets/images/newchat.png" width="80px" alt="">
-            <a style="font-size: 35px; color: blue;" class="nav-link active" aria-current="page" href="HOME.html"><b>
-                    BUSACO
-                    HOLDINGS NIG LTD</b></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav" id="navvv">
-
-                    <a id="navvy" class="nav-link" href="HOME.html">Home</a>
-                    <a id="navvy" class="nav-link" href="#abbt">About Us</a>
-                    <a id="navvy" class="nav-link" href="petroleum.html"><b
-                            style="font-size: 30px; color: white;">Petroleum</b></a>
-                    <a id="navvy" class="nav-link" href="real-estate.html">Real Estate</a>
-                    <a id="navvy" class="nav-link" href="#">Agriculture</a>
-
-
-                    <li class="nav-item dropdown">
-                        <a id="navvy" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Others
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a id="mavvy" class="dropdown-item" href="#">Finance</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Import & Export</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Investments</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Sustainability</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">News</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Careers</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#mfoot">Contact Us</a></li>
-                        </ul>
-                    </li>
-
-
-
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- Header end -->
-
-    <br>
-
-    <!-- hero head -->
-    <p style="text-align: center; font-size: 30px;"><b>Building Sustainable Wealth In <b style="color: blue;">THE
-                PETROLEUM INDUSTRY</b></b></p>
-    <br>
-    <p id="bh"><b style="color: blue;">BUSACO PETROLEUM HOLDINGS LIMITED</b> is a prominent company committed to
-        delivering excellence in
-        <b style="color: blue;">MAINLY PETROLEUM</b> for the daily needs of the masses.
-    </p>
-
-    <br><br>
-    <!-- Buttons -->
-    <div style="text-align: center;">
-        <a href="HOME.html">
-            <button id="mybu" class="col-sm-3">Explore Our Businesses</button>
-        </a>
-
-
-        <a href="#mfoot">
-
-
-            <button id="mybu" class="col-sm-3">Contact Us</button>
-        </a>
-    </div>
-
-
-    <!-- About Us -->
-
-    <br><br>
-    <div id="abbt">
-        <p style="font-size: 25px;"><b><u>About Us</u></b></p>
-        <p style="text-align: left; padding-left: 5px; font-size: 20px; color: blue;"><b>Who We Are</b></p>
-        <p style="font-size: 20px; max-width: 95%; padding-left: 5px;"><b>BUSACO PETROLEUM HOLDINGS LIMITED</b> is a
-            prominent organization focused on creating sustainable value across multiple industries. Our operations
-            are built on integrity, innovation, quality, and customer satisfaction.
-            </b>
-
-            <b>Our mission</b> is to build businesses that create opportunities, empower communities, and contribute to
-            long-term national and global development.
-        </p>
-
-        <p style="font-size: 20px; max-width: 95%; padding-left: 5px;">We are dedicated to delivering reliable services
-            while contributing to economic growth and community development.
-
-        </p>
-
-        <!-- Buttons -->
-        <div style="text-align: center;">
-            <button id="mybu" class="col-sm-3">Read More</button>
-        </div>
-
-
-
-    </div>
-    <br><br>
-    <hr>
-
-    <!-- Why Choose Us -->
-    <p style="font-size: 25px;"><b><u>Why Choose BUSACO PETROLEUM?</u></b></p>
-    <ul>
-        <li style="color: blue;">
-            <p style="text-align: left; padding-left: 5px; font-size: 20px; color: blue;"><b>QUALITY</b></p>
-        </li>
-    </ul>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">We maintain world-class standards
-        in every project.
-    </p>
-
-    <br>
-
-
-    <ul>
-        <li style="color: blue;">
-            <p style="text-align: left; padding-left: 5px; font-size: 20px; color: blue;"><b>INNOVATION</b></p>
-        </li>
-    </ul>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">We embrace modern technology and
-        creative solutions.
-    </p>
-
-    <br>
-
-
-    <ul>
-        <li style="color: blue;">
-            <p style="text-align: left; padding-left: 5px; font-size: 20px; color: blue;"><b>INTEGRITY</b></p>
-        </li>
-    </ul>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">We conduct business with honesty
-        and transparency.</p>
-
-    <br>
-
-
-    <ul>
-        <li style="color: blue;">
-            <p style="text-align: left; padding-left: 5px; font-size: 20px; color: blue;"><b>SUSTAINABILITY</b></p>
-        </li>
-    </ul>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">We build businesses that benefit
-        future generations.</p>
-
-    <br>
-
-    <!-- Our Mission -->
-    <p style="font-size: 25px;"><b><u>Our Mission</u></b></p>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">To provide world-class products
-        and services while creating sustainable opportunities for our customers, employees, and communities.</p>
-
-    <hr><br>
-
-
-
-    <!-- Our Vision -->
-    <p style="font-size: 25px;"><b><u>Our Vision</u></b></p>
-
-    <p style="font-size: 20px; max-width: 95%; padding-left: 35px; text-align: left;">To become one of Africa's leading
-        diversified business groups recognized for excellence, innovation, and sustainable growth.
-    </p>
-
-    <hr>
-    <br>
-
-
-    <!-- Our Core Values -->
-    <p style="font-size: 25px;"><b><u>Our Core Values</u></b></p>
-
-    <br>
-
-
-    <div class="container py-5">
-        <div class="row g-4">
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h4>Integrity</h4>
-                        <p>We conduct every business transaction with honesty, transparency, and the highest ethical
-                            standards.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h4>Excellence</h4>
-                        <p>We strive for excellence by consistently delivering high-quality products, services, and
-                            customer experiences.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h4>Innovation</h4>
-                        <p>We embrace creativity and modern technologies to develop innovative solutions that drive
-                            sustainable growth.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container py-5">
-                <div class="row g-4">
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                        <div class="card shadow h-100">
-                            <div class="card-body">
-                                <h4>Accountability</h4>
-                                <p>We take responsibility for our actions, honor our commitments, and deliver on our
-                                    promises with professionalism.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                        <div class="card shadow h-100">
-                            <div class="card-body">
-                                <h4>Sustainability</h4>
-                                <p>We are committed to responsible business practices that protect the environment and
-                                    create lasting value for future generations.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                        <div class="card shadow h-100">
-                            <div class="card-body">
-                                <h4>Customer Satisfaction</h4>
-                                <p>We place our customers at the heart of everything we do, delivering reliable
-                                    solutions that exceed expectations.</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-
-
-            <section class="container py-5">
-
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold text-primary">Our Achievements</h2>
-                    <p class="text-muted">
-                        Delivering excellence across industries with measurable results.
+                    <p>
+                        Powering Industries. Growing Prosperity.
+                        Building the Future.
                     </p>
-                </div>
 
-                <div class="row g-4">
+                    <p>
+                        <i class="fa-regular fa-envelope me-2"></i>
+                        <b>Email:</b>
+                        busakabir@gmail.com
+                    </p>
 
-                    <!-- Counter 1 -->
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="counter-box counter-one">
-                            <h1 class="display-2 fw-bold">15+</h1>
-                            <h4>Years of Experience</h4>
-                            <p>Delivering trusted services with excellence and integrity.</p>
-                        </div>
-                    </div>
+                    <p>
+                        <i class="fa-solid fa-phone me-2"></i>
+                        <b>Phone:</b>
+                        +234 8037 730 037
+                    </p>
 
-                    <!-- Counter 2 -->
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="counter-box counter-two">
-                            <h1 class="display-2 fw-bold">500+</h1>
-                            <h4>Projects Completed</h4>
-                            <p>Successfully executed projects across diverse industries.</p>
-                        </div>
-                    </div>
+                    <p>
+                        <i class="fa-solid fa-phone me-2"></i>
+                        <b>UK:</b>
+                        +447 405 864 313
+                    </p>
 
-                    <!-- Counter 3 -->
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="counter-box counter-three">
-                            <h1 class="display-2 fw-bold">100+</h1>
-                            <h4>Business Partners</h4>
-                            <p>Building strong partnerships that create lasting value.</p>
-                        </div>
-                    </div>
-
-                    <!-- Counter 4 -->
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="counter-box counter-four">
-                            <h1 class="display-2 fw-bold">10+</h1>
-                            <h4>Business Sectors</h4>
-                            <p>Diversified operations driving sustainable growth.</p>
-                        </div>
-                    </div>
+                    <p>
+                        <i class="fa-solid fa-location-dot me-2"></i>
+                        <b>Address:</b>
+                        Busaco Estate, 12B High Street,
+                        Grays, RM17 6LU, United Kingdom
+                    </p>
 
                 </div>
 
-            </section>
+
+                <!-- Quick Links -->
+
+                <div class="col-6 col-lg-2">
+
+                    <h5>
+                        Quick Links
+                    </h5>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="HOME.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#about">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="petroleum.html">
+                                Petroleum
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="real-estate.html">
+                                Real Estate
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="agriculture.html">
+                                Agriculture
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
 
 
-            <div class="text-center mb-5">
-                <h2 class="fw-bold text-primary">Latest News</h2>
-                <p class="text-muted">
-                    Stay updated with the latest developments, projects and achievements at BUSACO Petroleum Holdings
-                    Limited.
-                </p>
+                <!-- Business -->
+
+                <div class="col-6 col-lg-2">
+
+                    <h5>
+                        Businesses
+                    </h5>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="#">
+                                Finance
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Investments
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Import & Export
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Sustainability
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Careers
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Social -->
+
+                <div class="col-lg-4">
+
+                    <h5>
+                        Connect With Us
+                    </h5>
+
+                    <p>
+                        Follow BUSACO for the latest news,
+                        developments and business updates.
+                    </p>
+
+                    <div class="social-icons">
+
+                        <a href="#">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="text-center row g-4">
 
-                <!-- CARD 1 -->
-                <div class="col-lg-12 col-md-12 col-12">
+            <div class="footer-bottom">
 
-                    <div class="card news-card h-100 border-0 shadow">
-
-                        <div class="news-img">
-                            <img src="assets/images/lan.png" class="img-fluid" alt="">
-                        </div>
-
-                        <div class="card-body">
-
-                            <span class="badge bg-primary mb-3">
-                                Petroleum
-                            </span>
-
-                            <h4 class="fw-bold">
-                                BUSACO Launches New Petroleum Storage Facility
-                            </h4>
-
-                            <p class="text-muted">
-                                Our state-of-the-art petroleum storage facility enhances operational efficiency and
-                                strengthens energy supply across the region.
-                            </p>
-
-                            <a href="#" class="btn btn-warning fw-bold">
-                                Read More →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                <p>
+                    © 2026 BUSACO Holdings Nigeria Limited.
+                    All Rights Reserved.
+                </p>
 
             </div>
 
         </div>
 
-    </div>
-
-    </section>
+    </footer>
 
 
 
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
 
 
-    <br>
-
-
-
-
-
-
-
-    <!-- footer -->
-    <section id="mfoot" style="background-color: #FF9800;">
-        <footer class="footer-section text-black" style="background-color: #FF9800;">
-            <div class="container" style="background-color: #FF9800;">
-                <div class="row g-4">
-                    <div class="col-lg-4 text-black">
-                        <a class="navbar-brand d-flex align-items-center mb-3" href="#">
-                            <img src="assets/images/newchat.png" width="70px" alt="">
-                            <a id="blg" style="font-size: 20px; color: blue;" class="nav-link active"
-                                aria-current="page" href="HOME.html"><b> BUSACO HOLDINGS NIG LTD</b></a>
-                        </a>
-                        <p class="mb-2"><i class="fa-regular fa-envelope me-2"></i><b>Email:</b> busakabir@gmail.com</p>
-                        <p class="mb-2"><i class="fa-solid fa-phone me-2"></i><b>Phone:</b> +234 8037 730 037, +447 405
-                            864 313</p>
-                        <p><i class="fa-solid fa-location-dot me-2"></i><b>Address:</b> Busaco Estate,
-                            12B High street
-                            Grays, <br>
-                            RM17,
-                            United Kingdom</p>
-                    </div>
-                    <div class="col-6 col-lg-2 offset-lg-2 col-md-12 text-black"><b>
-                            <a href="Home.html" id="bnav" style="color: blue;">Home</h6>
-                                <a href="petroleum.html" id="bnav" style="color: blue;">Petroleum</a>
-                                <a href="online.html" id="bnav" style="color: blue;">Real Estate</a>
-                                <a href="#testimonials" id="bnav" style="color: blue;">Import & Export</a>
-                                <a href="#testimonials" id="bnav" style="color: blue;">Sustainabilty</a>
-                                <a href="#testimonials" id="bnav" style="color: blue;">Careers</a>
-                                <a href="#pricing" id="bnav" style="color: blue;">Our FAQ</a></b>
-                    </div>
-                    <div class="col-6 col-lg-2 col-md-12"><b>
-                            <a href="#abbt" id="bnav" style="color: blue;">About Us</h6>
-                                <a href="#" id="bnav" style="color: blue;">Agriculture</a>
-                                <a href="#" id="bnav" style="color: blue;">Finance</a>
-                                <a href="#" id="bnav" style="color: blue;">Investments</a>
-                                <a href="#" id="bnav" style="color: blue;">News</a>
-                                <a href="#" id="bnav" style="color: blue;">Contact Us</a></b>
-                    </div>
-
-                    <div class="col-lg-2 text-black">
-                        <h6 style="color: black;">Social Profiles</h6>
-                        <div class="d-flex gap-2">
-
-                            <a href="https://www.facebook.com/photo.php?fbid=122166461390890505&set=pb.61576715161181.-2207520000&type=3"
-                                class="footer-social"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="whatsapp.com" class="footer-social"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="instagram.com" class="footer-social"><i class="fa-brands fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-bottom">
-                        <p style="color: blue;"><b>Powering Industries. Growing Prosperity. Building the Future.</b></p>
-                    </div>
-                </div>
-        </footer>
-
-        <script src="BUSACO.js"></script>
-    </section>
 </body>
 
->>>>>>> 396b17bbf48c2ccec97a5c9ce9b1c532d6795f7a
 </html>

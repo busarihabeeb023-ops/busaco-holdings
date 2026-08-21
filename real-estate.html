@@ -2,260 +2,1495 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BUSACO Holdings | Real Estate</title>
 
-    <title>BUSACO HOLDINGS NIGERIA LIMITED</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
 
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Chelsea+Market&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Montenegrin+Gothic+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="real-estate.css">
+    <style>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
-        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        :root {
+            --orange: #ff9800;
+            --dark-orange: #e68900;
+            --blue: #0047ab;
+            --dark-blue: #002d72;
+            --light-blue: #eef5ff;
+            --white: #ffffff;
+            --black: #111111;
+            --gray: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Be Vietnam Pro", sans-serif;
+            color: var(--black);
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .navbar-container {
+            background: linear-gradient(90deg, #ff9800, #ffa726);
+            padding: 10px 3%;
+        }
+
+        .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .brand-area img {
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            color: var(--blue);
+            font-size: 25px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .navbar-toggler {
+            border: 2px solid var(--blue);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-nav {
+            gap: 5px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #111 !important;
+            font-weight: 600;
+            padding: 10px 12px !important;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--blue);
+            color: white !important;
+        }
+
+        .active-page {
+            background: var(--blue);
+            color: white !important;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .dropdown-item {
+            padding: 10px 18px;
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background: var(--orange);
+            color: white;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                linear-gradient(
+                    rgba(0, 38, 94, 0.72),
+                    rgba(0, 38, 94, 0.72)
+                ),
+                url("./assets/images/busaco heights.png");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding: 80px 20px;
+        }
+
+        .hero-small {
+            color: var(--orange);
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(42px, 6vw, 75px);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 720px;
+            color: #f5f5f5;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-orange {
+            background: var(--orange);
+            color: white;
+            border: 2px solid var(--orange);
+            padding: 13px 27px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-orange:hover {
+            background: white;
+            color: var(--blue);
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 13px 27px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: var(--blue);
+            transform: translateY(-3px);
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            padding: 90px 0;
+            background: white;
+        }
+
+        .section-label {
+            color: var(--orange);
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            color: var(--blue);
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+            font-size: 40px;
+            margin: 10px 0 20px;
+        }
+
+        .intro-text {
+            color: var(--gray);
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .intro-image {
+            position: relative;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-box {
+            position: absolute;
+            bottom: -25px;
+            left: -25px;
+            background: var(--orange);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .experience-box h3 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+
+        /* ================= SERVICES ================= */
+
+        .services {
+            background: var(--light-blue);
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-heading p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .service-card {
+            background: white;
+            border: none;
+            border-radius: 18px;
+            padding: 35px 25px;
+            height: 100%;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            transition: 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            height: 5px;
+            width: 100%;
+            background: var(--orange);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.13);
+        }
+
+        .service-icon {
+            width: 75px;
+            height: 75px;
+            margin: auto;
+            border-radius: 50%;
+            background: var(--light-blue);
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            transition: 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--orange);
+            color: white;
+        }
+
+        .service-card h3 {
+            color: var(--blue);
+            font-size: 21px;
+            font-weight: 800;
+            margin: 20px 0 12px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+
+        /* ================= WHY BUSACO ================= */
+
+        .why-us {
+            padding: 90px 0;
+        }
+
+        .why-card {
+            border: 1px solid #e7e7e7;
+            border-radius: 16px;
+            padding: 30px;
+            height: 100%;
+            transition: 0.3s ease;
+            background: white;
+        }
+
+        .why-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .why-number {
+            color: var(--orange);
+            font-size: 35px;
+            font-weight: 800;
+        }
+
+        .why-card h3 {
+            color: var(--blue);
+            font-weight: 800;
+            margin: 10px 0;
+        }
+
+        .why-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+
+        /* ================= PROPERTIES ================= */
+
+        .properties {
+            background: #f7f9fc;
+            padding: 90px 0;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.35s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .property-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .property-card:hover .property-image img {
+            transform: scale(1.08);
+        }
+
+        .property-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--orange);
+            color: white;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .property-body {
+            padding: 25px;
+        }
+
+        .property-body h3 {
+            color: var(--blue);
+            font-weight: 800;
+        }
+
+        .property-body p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .property-link {
+            color: var(--blue);
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .property-link:hover {
+            color: var(--orange);
+        }
+
+
+        /* ================= INVESTMENT ================= */
+
+        .investment {
+            padding: 90px 0;
+        }
+
+        .investment-box {
+            background: linear-gradient(120deg, var(--blue), #0066cc);
+            border-radius: 25px;
+            padding: 60px;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .investment-box::after {
+            content: "";
+            width: 250px;
+            height: 250px;
+            border: 35px solid rgba(255, 152, 0, 0.25);
+            border-radius: 50%;
+            position: absolute;
+            right: -80px;
+            top: -80px;
+        }
+
+        .investment-box h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        .investment-box p {
+            line-height: 1.9;
+            color: #e9f2ff;
+        }
+
+        .investment-image img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 100px 20px;
+            background:
+                linear-gradient(
+                    rgba(255, 152, 0, 0.92),
+                    rgba(255, 152, 0, 0.92)
+                ),
+                url("./assets/images/business centre.png");
+
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+        }
+
+        .cta p {
+            max-width: 750px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #061b3a;
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand img {
+            width: 65px;
+        }
+
+        .footer-brand span {
+            color: var(--orange);
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .footer-title {
+            color: var(--orange);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #dbe7f5;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+            padding-left: 5px;
+        }
+
+        .footer-info {
+            color: #dbe7f5;
+            line-height: 1.8;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--orange);
+            color: white;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: white;
+            color: var(--blue);
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            margin-top: 50px;
+            padding-top: 20px;
+            text-align: center;
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 991px) {
+
+            .brand-name {
+                font-size: 20px;
+            }
+
+            .navbar-nav {
+                align-items: stretch;
+                margin-top: 15px;
+            }
+
+            .nav-link {
+                text-align: center;
+            }
+
+            .hero {
+                min-height: 570px;
+            }
+
+            .hero-content {
+                text-align: center;
+                margin: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .investment-box {
+                padding: 40px 25px;
+            }
+
+            .investment-box h2 {
+                font-size: 32px;
+            }
+        }
+
+
+        @media (max-width: 767px) {
+
+            .brand-area img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .brand-name {
+                font-size: 16px;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .intro {
+                padding: 65px 0;
+            }
+
+            .intro-image img {
+                height: 300px;
+            }
+
+            .experience-box {
+                left: 10px;
+                bottom: -20px;
+            }
+
+            .services,
+            .why-us,
+            .properties,
+            .investment {
+                padding: 65px 0;
+            }
+
+            .investment-box {
+                padding: 35px 20px;
+            }
+
+            .investment-box h2 {
+                font-size: 28px;
+            }
+
+            .investment-image {
+                margin-top: 30px;
+            }
+
+            .cta {
+                padding: 70px 20px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+    </style>
 </head>
 
-<body style="color: black;">
+
+<body>
 
 
+<!-- ================= NAVBAR ================= -->
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid" style="background-color: #FF9800;">
-            <img src="assets/images/newchat.png" width="80px" alt="">
-            <a style="font-size: 35px; color: blue;" class="nav-link active" aria-current="page" href="HOME.html"><b>
-                    BUSACO
-                    HOLDINGS NIG LTD</b></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav" id="navvv">
+<nav class="navbar navbar-expand-lg">
 
-                    <a id="navvy" class="nav-link" href="HOME.html">Home</a>
-                    <a id="navvy" class="nav-link" href="#abbt">About Us</a>
-                    <a id="navvy" class="nav-link" href="petroleum.html">Petroleum</a>
-                    <a id="navvy" class="nav-link" href="#"><b style="font-size: 30px; color: white;">Real
-                            Estate</b></a>
-                    <a id="navvy" class="nav-link" href="agriculture.html">Agriculture</a>
+    <div class="container-fluid navbar-container">
+
+        <a href="HOME.html" class="brand-area">
+
+            <img src="assets/images/newchat.png" alt="BUSACO Logo">
+
+            <span class="brand-name">
+                BUSACO HOLDINGS NIG LTD
+            </span>
+
+        </a>
 
 
-                    <li class="nav-item dropdown">
-                        <a id="navvy" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Others
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a id="mavvy" class="dropdown-item" href="#">Finance</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Import & Export</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Investments</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Sustainability</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">News</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#">Careers</a></li>
-                            <li><a id="mavvy" class="dropdown-item" href="#mfoot">Contact Us</a></li>
-                        </ul>
-                    </li>
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
 
 
+        <div class="collapse navbar-collapse" id="mainNavbar">
 
-                </div>
-            </div>
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="HOME.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        About Us
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="petroleum.html">
+                        Petroleum
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active-page" href="real-estate.html">
+                        Real Estate
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="agriculture.html">
+                        Agriculture
+                    </a>
+                </li>
+
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       data-bs-toggle="dropdown">
+
+                        Others
+
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Finance
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Import & Export
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Investments
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Sustainability
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                News
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Careers
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#contact">
+                                Contact Us
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
         </div>
-    </nav>
-    <!-- Header end -->
 
-    <br>
-
-    <!-- hero head -->
-    <p style="text-align: center; font-size: 30px;"><b style="color: blue;">THE REAL ESTATE SECTOR</b></p>
-    <p style="text-align: center; font-size: 15px;"><b style="color: orange;">Building Spaces. Creating Futures.</b></p>
-
-    <br>
-    <p id="bh">At<b style="color: blue;"> BUSACO REAL ESTATE COMPANY LIMITED,</b> We are committed to delivering reliable and sustainable real estate solutions across residential, commercial, and investment sectors. We combine <b>thoughtful planning, quality development, and strategic investment</b> to create properties that provide lasting value.
-
-Whether you are looking for a place to live, a space for your business, or an opportunity to invest, our real estate services are designed around <b>quality, functionality, and long-term value.</b></p>
-
-    <br><br>
-    <!-- Buttons -->
-    <div style="text-align: center;">
-        <a href="HOME.html">
-            <button id="mybu" class="col-sm-3">Explore Our Properties</button>
-        </a>
-
-
-        <a href="#mfoot">
-
-
-            <button id="mybu" class="col-sm-3">Contact Us</button>
-        </a>
     </div>
 
+</nav>
 
-    <!-- ABOUT REAL ESTATE SECTION -->
-    <section class="real-estate-about py-5">
 
-        <div class="container">
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                BUSACO REAL ESTATE
+            </div>
+
+            <h1>
+                Building Spaces.<br>
+                <span>Creating Futures.</span>
+            </h1>
+
+            <p>
+                We develop quality residential and commercial spaces
+                designed for modern living, business growth and
+                long-term investment value.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#properties" class="btn-orange">
+                    Explore Properties
+                </a>
+
+                <a href="#contact" class="btn-outline-white">
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="intro" id="about">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <div class="intro-image">
+
+                    <img src="./assets/images/busbld.png"
+                         alt="BUSACO Real Estate Development">
+
+                    <div class="experience-box">
+
+                        <h3>BUSACO</h3>
+
+                        <p class="mb-0">
+                            Building Tomorrow
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <span class="section-label">
+                    About Our Real Estate Division
+                </span>
+
+                <h2 class="section-title">
+                    Building Better Spaces for Better Living
+                </h2>
+
+                <p class="intro-text">
+                    At <strong style="color:#0047ab;">
+                        BUSACO Real Estate Company Limited
+                    </strong>,
+                    we are committed to delivering reliable and
+                    sustainable real estate solutions across
+                    residential, commercial and investment sectors.
+                </p>
+
+                <p class="intro-text">
+                    We combine thoughtful planning, quality development
+                    and strategic investment to create properties that
+                    provide lasting value for individuals, businesses
+                    and communities.
+                </p>
+
+                <a href="#properties" class="btn-orange mt-3">
+                    Explore Our Properties
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                What We Do
+            </span>
+
+            <h2 class="section-title">
+                Our Real Estate Services
+            </h2>
+
+            <p>
+                Explore our range of real estate solutions designed
+                to create quality spaces and lasting value.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+
+                    <h3>
+                        Residential Properties
+                    </h3>
+
+                    <p>
+                        Quality homes and residential developments
+                        designed for comfortable and modern living.
+                    </p>
+
+                    <a href="#properties"
+                       class="btn-orange">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+
+                    <h3>
+                        Commercial Properties
+                    </h3>
+
+                    <p>
+                        Strategic commercial spaces designed to support
+                        businesses, organizations and entrepreneurs.
+                    </p>
+
+                    <a href="#properties"
+                       class="btn-orange">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-city"></i>
+                    </div>
+
+                    <h3>
+                        Property Development
+                    </h3>
+
+                    <p>
+                        From planning to completion, we develop properties
+                        with quality and functionality in mind.
+                    </p>
+
+                    <a href="#properties"
+                       class="btn-orange">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <h3>
+                        Property Investment
+                    </h3>
+
+                    <p>
+                        Strategic real estate investment opportunities
+                        focused on long-term value.
+                    </p>
+
+                    <a href="#investment"
+                       class="btn-orange">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= WHY BUSACO ================= -->
+
+<section class="why-us">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                Why BUSACO
+            </span>
+
+            <h2 class="section-title">
+                Why Choose BUSACO Real Estate?
+            </h2>
+
+            <p>
+                Our approach combines quality, strategic thinking
+                and long-term value creation.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <div class="why-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Quality & Excellence
+                    </h3>
+
+                    <p>
+                        We focus on delivering properties and
+                        developments that meet high standards
+                        of quality and functionality.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <div class="why-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Strategic Locations
+                    </h3>
+
+                    <p>
+                        We identify opportunities in locations
+                        with strong potential for residential,
+                        commercial and investment growth.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <div class="why-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Long-Term Value
+                    </h3>
+
+                    <p>
+                        Our developments are designed to maintain
+                        and increase their value over time.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <div class="why-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Trusted Partnership
+                    </h3>
+
+                    <p>
+                        We work closely with clients, partners and
+                        investors to create reliable opportunities.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PROPERTIES ================= -->
+
+<section class="properties" id="properties">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                Our Portfolio
+            </span>
+
+            <h2 class="section-title">
+                Featured Properties
+            </h2>
+
+            <p>
+                Explore selected properties and developments
+                from BUSACO Holdings.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- PROPERTY 1 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="property-card">
+
+                    <div class="property-image">
+
+                        <img src="./assets/images/busaco heights.png"
+                             alt="BUSACO Heights">
+
+                        <span class="property-tag">
+                            RESIDENTIAL
+                        </span>
+
+                    </div>
+
+                    <div class="property-body">
+
+                        <h3>
+                            BUSACO Heights
+                        </h3>
+
+                        <p>
+                            Modern residential development designed
+                            for comfortable contemporary living.
+                        </p>
+
+                        <a href="#contact"
+                           class="property-link">
+
+                            View Property
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROPERTY 2 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="property-card">
+
+                    <div class="property-image">
+
+                        <img src="./assets/images/business centre.png"
+                             alt="BUSACO Business Centre">
+
+                        <span class="property-tag">
+                            COMMERCIAL
+                        </span>
+
+                    </div>
+
+                    <div class="property-body">
+
+                        <h3>
+                            BUSACO Business Centre
+                        </h3>
+
+                        <p>
+                            Premium commercial spaces designed
+                            for businesses and organizations.
+                        </p>
+
+                        <a href="#contact"
+                           class="property-link">
+
+                            View Property
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROPERTY 3 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="property-card">
+
+                    <div class="property-image">
+
+                        <img src="./assets/images/busaco gardens.png"
+                             alt="BUSACO Gardens">
+
+                        <span class="property-tag">
+                            DEVELOPMENT
+                        </span>
+
+                    </div>
+
+                    <div class="property-body">
+
+                        <h3>
+                            BUSACO Gardens
+                        </h3>
+
+                        <p>
+                            Planned residential spaces combining
+                            functionality, comfort and modern living.
+                        </p>
+
+                        <a href="#contact"
+                           class="property-link">
+
+                            View Property
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= INVESTMENT ================= -->
+
+<section class="investment" id="investment">
+
+    <div class="container">
+
+        <div class="investment-box">
 
             <div class="row align-items-center g-5">
 
-                <!-- IMAGE -->
-                <div class="col-lg-6 col-md-6 col-12">
+                <div class="col-lg-7">
 
-                    <div class="real-estate-image">
-                        <img src="./assets/images/busbld.png" alt="Modern Real Estate Development" class="img-fluid">
-                    </div>
+                    <span class="section-label"
+                          style="color:white;">
+                        REAL ESTATE INVESTMENT
+                    </span>
 
-                </div>
+                    <h2 class="mt-2">
+                        Invest in Real Estate.
+                        Build Lasting Value.
+                    </h2>
 
-
-                <!-- TEXT -->
-                <div class="col-lg-6 col-md-6 col-12">
-
-                    <div class="real-estate-text">
-
-                        <span class="real-estate-label">
-                            REAL ESTATE
-                        </span>
-
-                        <h2>
-                            Building Better Spaces for Better Living
-                        </h2>
-
-                        <p>
-                            BUSACO's Real Estate division is focused on the
-                            development, acquisition, management, and investment
-                            in residential and commercial properties.
-                        </p>
-
-                        <p>
-                            We combine strategic planning, quality construction,
-                            and sustainable development principles to create
-                            properties that meet the evolving needs of individuals,
-                            businesses, and communities.
-                        </p>
-
-                        <a href="HOME.html">
-                            <button id="mybu" class="col-sm-9">Explore Our Properties</button>
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-<section class="container py-5">
-
-    <div class="text-center mb-5">
-        <h2>Our Real Estate Services</h2>
-        <p>Explore our range of real estate solutions designed to create quality and lasting value.</p>
-    </div>
-
-    <div class="row g-4">
-
-        <!-- Residential Properties -->
-        <div class="col-lg-3 col-md-6 col-12">
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-                    <h3 class="card-title">🏠 Residential Properties</h3>
-
-                    <p class="card-text">
-                        Quality homes and residential developments designed
-                        for comfortable and modern living.
-                    </p><br>
-
-                     <a href="HOME.html">
-            <button id="mybu" class="">Learn More</button>
-        </a>
-                </div>
-
-            </div>
-        </div>
-
-
-        <!-- Commercial Properties -->
-        <div class="col-lg-3 col-md-6 col-12">
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-                    <h3 class="card-title">🏢 Commercial Properties</h3>
-
-                    <p class="card-text">
-                        Strategic commercial spaces designed to support
-                        businesses, organizations, and entrepreneurs.
-                    </p><br>
-
-                     <a href="HOME.html">
-            <button id="mybu" class="">Learn More</button>
-        </a>
-                </div>
-
-            </div>
-        </div>
-
-
-        <!-- Property Development -->
-        <div class="col-lg-3 col-md-6 col-12">
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-                    <h3 class="card-title">🏗️ Property Development</h3>
-
-                    <p class="card-text">
-                        From planning to completion, we develop properties
-                        with quality, functionality, and long-term value in mind.
+                    <p class="mt-3">
+                        Real estate can provide opportunities for
+                        long-term growth and wealth creation.
+                        BUSACO Holdings identifies and develops
+                        strategic property opportunities designed
+                        to create value for investors while
+                        contributing to sustainable development.
                     </p>
 
-                               <a href="HOME.html">
-            <button id="mybu" class="">Learn More</button>
-        </a>
+                    <a href="#contact"
+                       class="btn-orange mt-3">
+                        Explore Investment Opportunities
+                    </a>
+
+                </div>
+
+
+                <div class="col-lg-5 investment-image">
+
+                    <img src="./assets/images/late build.png"
+                         alt="BUSACO Real Estate Investment">
+
                 </div>
 
             </div>
-        </div>
 
-
-        <!-- Property Investment -->
-        <div class="col-lg-3 col-md-6 col-12">
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-                    <h3 class="card-title">📊 Property Investment</h3>
-
-                    <p class="card-text">
-                        Strategic real estate investment opportunities focused
-                        on long-term value and sustainable returns.
-                    </p>
-
-       <a href="HOME.html">
-            <button id="mybu" class="">Learn More</button>
-        </a>
-                </div>
-
-            </div>
         </div>
 
     </div>
@@ -263,203 +1498,35 @@ Whether you are looking for a place to live, a space for your business, or an op
 </section>
 
 
-<!-- 4. WHY CHOOSE BUSACO HOLDINGS -->
 
-<section class="container py-5">
+<!-- ================= CTA ================= -->
 
-    <div class="text-center mb-5">
-        <h2>Why Choose BUSACO Real Estate?</h2>
+<section class="cta" id="contact">
+
+    <div class="container">
+
+        <h2>
+            Let's Build Your Future Together
+        </h2>
+
         <p>
-            We are committed to creating quality properties and
-            real estate opportunities that deliver lasting value.
+            Whether you are searching for your next property,
+            planning a development, or exploring real estate
+            investment opportunities, BUSACO Holdings is ready
+            to help you take the next step.
         </p>
-    </div>
 
-    <div class="row g-4">
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
 
-        <!-- Quality & Excellence -->
-        <div class="col-lg-3 col-md-6 col-12">
-            <div class="card h-100 text-center shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Quality & Excellence</h3>
-                    <p class="card-text">
-                        We focus on delivering properties and developments
-                        that meet high standards of quality and functionality.
-                    </p>
-                </div>
-            </div>
-        </div>
+            <a href="HOME.html"
+               class="btn-outline-white">
+                Explore Our Properties
+            </a>
 
-        <!-- Strategic Locations -->
-        <div class="col-lg-3 col-md-6 col-12">
-            <div class="card h-100 text-center shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Strategic Locations</h3>
-                    <p class="card-text">
-                        We identify opportunities in locations with strong
-                        potential for residential, commercial, and investment growth.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Long-Term Value -->
-        <div class="col-lg-3 col-md-6 col-12">
-            <div class="card h-100 text-center shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Long-Term Value</h3>
-                    <p class="card-text">
-                        Our approach focuses on creating properties and
-                        investments designed to maintain and increase their value.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Trusted Partnership -->
-        <div class="col-lg-3 col-md-6 col-12">
-            <div class="card h-100 text-center shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Trusted Partnership</h3>
-                    <p class="card-text">
-                        We work closely with clients, partners, and investors
-                        to create reliable and mutually beneficial opportunities.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- 5. FEATURED PROPERTIES -->
-
-<section class="container py-5">
-
-    <div class="text-center mb-5">
-        <h2>Featured Properties</h2>
-        <p>
-            Explore selected properties and developments from BUSACO Holdings.
-        </p>
-    </div>
-
-    <div class="row g-4">
-
-        <!-- Property 1 -->
-        <div class="col-lg-4 col-md-6 col-12">
-            <div class="card h-100 shadow-sm">
-
-                <img src="./assets/images/busaco heights.png"
-                     class="card-img-top"
-                     alt="BUSACO Heights">
-
-                <div class="card-body text-center">
-                    <h3 class="card-title">BUSACO Heights</h3>
-
-                    <p class="card-text">
-                        Modern residential development designed for
-                        comfortable contemporary living.
-                    </p>
-
-                              <a href="HOME.html">
-            <button id="mybu" class="">View Property</button>
-        </a>
-                </div>
-
-            </div>
-        </div>
-
-
-        <!-- Property 2 -->
-        <div class="col-lg-4 col-md-6 col-12">
-            <div class="card h-100 shadow-sm">
-
-                <img src="./assets/images/business centre.png"
-                     class="card-img-top"
-                     alt="BUSACO Business Centre">
-
-                <div class="card-body text-center">
-                    <h3 class="card-title">BUSACO Business Centre</h3>
-
-                    <p class="card-text">
-                        Premium commercial spaces designed for
-                        businesses and organizations.
-                    </p>
-
-                              <a href="HOME.html">
-            <button id="mybu" class="">View Property</button>
-        </a>
-                </div>
-
-            </div>
-        </div>
-
-
-        <!-- Property 3 -->
-        <div class="col-lg-4 col-md-6 col-12">
-            <div class="card h-100 shadow-sm">
-
-                <img src="./assets/images/busaco gardens.png"
-                     class="card-img-top"
-                     alt="BUSACO Gardens">
-
-                <div class="card-body text-center">
-                    <h3 class="card-title">BUSACO Gardens</h3>
-
-                    <p class="card-text">
-                        Planned residential spaces combining functionality,
-                        comfort, and modern living.
-                    </p>
-
-                    <a href="HOME.html">
-            <button id="mybu" class="">View Property</button>
-        </a>
-
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- 6. REAL ESTATE INVESTMENT -->
-
-<section class="container py-5">
-
-    <div class="row align-items-center">
-
-        <!-- Text -->
-        <div class="col-lg-7 col-md-12">
-
-            <h2>Invest in Real Estate. Build Lasting Value.</h2>
-
-            <p>
-                Real estate can provide opportunities for long-term growth
-                and wealth creation. BUSACO Holdings identifies and develops
-                strategic property opportunities designed to deliver value
-                to investors while contributing to sustainable development.
-            </p>
-
-           <a href="HOME.html">
-            <button id="mybu" class="">Explore Investment Opportunities</button>
-        </a>
-
-
-        
-
-        </div>
-
-        <!-- Image -->
-        <div class="col-lg-5 col-md-12 mt-4 mt-lg-0">
-
-            <img src="./assets/images/late build.png"
-                 class="img-fluid rounded"
-                 alt="Real Estate Investment">
+            <a href="#footer"
+               class="btn-outline-white">
+                Contact BUSACO
+            </a>
 
         </div>
 
@@ -468,100 +1535,203 @@ Whether you are looking for a place to live, a space for your business, or an op
 </section>
 
 
-<!-- 7. FINAL CALL TO ACTION -->
 
-<section class="container py-5 text-center">
+<!-- ================= FOOTER ================= -->
 
-    <h2>Let's Build Your Future Together</h2>
+<footer id="footer">
 
-    <p class="mx-auto">
-        Whether you are searching for your next property, planning a
-        development, or exploring real estate investment opportunities,
-        BUSACO Holdings is ready to help you take the next step.
-    </p>
+    <div class="container">
 
-    <div class="mt-4">
-
-        <a href="HOME.html">
-            <button id="mybu" class="col-sm-3">Explore Our Properties</button>
-        </a>
+        <div class="row g-5">
 
 
-        <a href="#mfoot">
+            <!-- COMPANY -->
+
+            <div class="col-lg-4">
+
+                <a href="HOME.html"
+                   class="footer-brand">
+
+                    <img src="assets/images/newchat.png"
+                         alt="BUSACO Logo">
+
+                    <span>
+                        BUSACO HOLDINGS NIG LTD
+                    </span>
+
+                </a>
+
+                <p class="footer-info">
+                    Powering Industries. Growing Prosperity.
+                    Building the Future.
+                </p>
+
+                <p class="footer-info">
+                    <i class="fa-regular fa-envelope me-2"></i>
+                    busakabir@gmail.com
+                </p>
+
+                <p class="footer-info">
+                    <i class="fa-solid fa-phone me-2"></i>
+                    +234 8037 730 037
+                </p>
+
+                <p class="footer-info">
+                    <i class="fa-solid fa-phone me-2"></i>
+                    +447 405 864 313
+                </p>
+
+            </div>
 
 
-            <button id="mybu" class="col-sm-3">Contact Us</button>
-        </a>
 
-    </div>
+            <!-- QUICK LINKS -->
 
-</section>
+            <div class="col-6 col-lg-2">
 
+                <h5 class="footer-title">
+                    Quick Links
+                </h5>
 
+                <ul class="footer-links">
 
+                    <li>
+                        <a href="HOME.html">Home</a>
+                    </li>
 
+                    <li>
+                        <a href="#about">About Us</a>
+                    </li>
 
+                    <li>
+                        <a href="petroleum.html">Petroleum</a>
+                    </li>
 
-
-
-    <br><br>
-
-    <!-- footer -->
-    <section id="mfoot" style="background-color: #FF9800;">
-        <footer class="footer-section text-black" style="background-color: #FF9800;">
-            <div class="container" style="background-color: #FF9800;">
-                <div class="row g-4">
-                    <div class="col-lg-4 text-black">
-                        <a class="navbar-brand d-flex align-items-center mb-3" href="#">
-                            <img src="assets/images/newchat.png" width="70px" alt="">
-                            <a id="blg" style="font-size: 20px; color: blue;" class="nav-link active"
-                                aria-current="page" href="HOME.html"><b> BUSACO HOLDINGS NIG LTD</b></a>
+                    <li>
+                        <a href="real-estate.html">
+                            Real Estate
                         </a>
-                        <p class="mb-2"><i class="fa-regular fa-envelope me-2"></i><b>Email:</b> busakabir@gmail.com</p>
-                        <p class="mb-2"><i class="fa-solid fa-phone me-2"></i><b>Phone:</b> +234 8037 730 037, +447 405
-                            864 313</p>
-                        <p><i class="fa-solid fa-location-dot me-2"></i><b>Address:</b> Busaco Estate,
-                            12B High street
-                            Grays, <br>
-                            RM17, 6LU,
-                            United Kingdom</p>
-                    </div>
-                    <div class="col-6 col-lg-2 offset-lg-2 col-md-12 text-black"><b>
-                            <a href="Home.html" id="bnav" style="color: blue;">Home</h6>
-                                <a href="petroleum.html" id="bnav" style="color: blue;">Petroleum</a>
-                                <a href="real-estate.html" id="bnav" style="color: blue;">Real Estate</a>
-                                <a href="#testimonials" id="bnav" style="color: blue;">Import & Export</a>
-                                <a href="#testimonials" id="bnav" style="color: blue;">Sustainabilty</a>
-                                <a href="#testimonials" id="bnav" style="color: blue;">Careers</a>
-                                <a href="#pricing" id="bnav" style="color: blue;">Our FAQ</a></b>
-                    </div>
-                    <div class="col-6 col-lg-2 col-md-12"><b>
-                            <a href="#abbt" id="bnav" style="color: blue;">About Us</h6>
-                                <a href="#" id="bnav" style="color: blue;">Agriculture</a>
-                                <a href="#" id="bnav" style="color: blue;">Finance</a>
-                                <a href="#" id="bnav" style="color: blue;">Investments</a>
-                                <a href="#" id="bnav" style="color: blue;">News</a>
-                                <a href="#" id="bnav" style="color: blue;">Contact Us</a></b>
-                    </div>
+                    </li>
 
-                    <div class="col-lg-2 text-black">
-                        <h6 style="color: black;">Social Profiles</h6>
-                        <div class="d-flex gap-2">
+                    <li>
+                        <a href="agriculture.html">
+                            Agriculture
+                        </a>
+                    </li>
 
-                            <a href="https://www.facebook.com/photo.php?fbid=122166461390890505&set=pb.61576715161181.-2207520000&type=3"
-                                class="footer-social"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="whatsapp.com" class="footer-social"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="instagram.com" class="footer-social"><i class="fa-brands fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-bottom">
-                        <p style="color: blue;"><b>Powering Industries. Growing Prosperity. Building the Future.</b></p>
-                    </div>
+                </ul>
+
+            </div>
+
+
+
+            <!-- SERVICES -->
+
+            <div class="col-6 col-lg-2">
+
+                <h5 class="footer-title">
+                    Services
+                </h5>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="#properties">
+                            Residential
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#properties">
+                            Commercial
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#properties">
+                            Development
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#investment">
+                            Investment
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Finance
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- ADDRESS -->
+
+            <div class="col-lg-4">
+
+                <h5 class="footer-title">
+                    Contact Us
+                </h5>
+
+                <p class="footer-info">
+
+                    <i class="fa-solid fa-location-dot me-2"></i>
+
+                    Busaco Estate, 12B High Street,
+                    Grays, RM17 6LU,
+                    United Kingdom.
+
+                </p>
+
+
+                <h6 class="footer-title mt-4">
+                    Follow Us
+                </h6>
+
+                <div class="social-icons">
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
                 </div>
-        </footer>
 
-        <script src="BUSACO.js"></script>
-    </section>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 BUSACO Holdings Nigeria Limited.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

@@ -1,1217 +1,872 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUSACO HOLDINGS NIGERIA LIMITED | Agriculture</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>BUSACO HOLDINGS NIGERIA LIMITED</title>
-
-
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Chelsea+Market&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Montenegrin+Gothic+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+  <style>
+    :root{
+      --blue:#123f86;
+      --blue-dark:#082a5e;
+      --blue-light:#eaf2ff;
+      --orange:#ff9800;
+      --orange-dark:#e68100;
+      --green:#319447;
+      --green-dark:#236c33;
+      --text:#26364a;
+      --muted:#68778a;
+      --light:#f5f9f5;
+      --white:#fff;
+      --shadow:0 15px 40px rgba(18,63,134,.10);
+    }
 
-  <link rel="stylesheet" href="agriculture.css">
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Be Vietnam Pro',sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.7;
+    }
+    h1,h2,h3,h4{font-family:'Lora',serif}
+    a{text-decoration:none}
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
-    integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    /* NAVBAR */
+    .navbar{
+      background:#fff!important;
+      box-shadow:0 4px 25px rgba(0,0,0,.08);
+      padding:9px 0;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{width:58px;height:58px;object-fit:contain}
+    .brand-text{
+      font-size:19px;
+      font-weight:800;
+      line-height:1.15;
+      color:var(--blue);
+    }
+    .brand-text span{color:var(--orange)}
+    .navbar-nav{gap:3px}
+    .nav-link{
+      color:var(--blue)!important;
+      font-weight:600;
+      padding:9px 11px!important;
+      border-radius:8px;
+      transition:.25s;
+    }
+    .nav-link:hover,.nav-link.active{
+      background:var(--blue);
+      color:#fff!important;
+    }
+    .dropdown-menu{
+      border:0;
+      border-radius:12px;
+      padding:8px;
+      box-shadow:var(--shadow);
+    }
+    .dropdown-item{
+      border-radius:7px;
+      padding:9px 13px;
+      font-weight:500;
+    }
+    .dropdown-item:hover{background:var(--blue-light);color:var(--blue)}
+
+    /* HERO */
+    .hero{
+      min-height:680px;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      background:
+        linear-gradient(90deg,rgba(8,42,94,.94) 0%,rgba(18,63,134,.88) 55%,rgba(18,63,134,.66) 100%),
+        url("assets/images/agriculture.png") center/cover no-repeat;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      width:520px;height:520px;
+      right:-270px;bottom:-300px;
+      border:95px solid rgba(255,152,0,.14);
+      border-radius:50%;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      left:-120px;bottom:-160px;
+      width:300px;height:300px;
+      border:55px solid rgba(49,148,71,.18);
+      border-radius:50%;
+    }
+    .hero-content{position:relative;z-index:2}
+    .eyebrow{
+      display:inline-block;
+      padding:7px 15px;
+      border:1px solid rgba(255,193,91,.45);
+      background:rgba(255,152,0,.15);
+      color:#ffc15b;
+      border-radius:30px;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:1.5px;
+      margin-bottom:20px;
+    }
+    .hero h1{
+      font-size:clamp(43px,6vw,76px);
+      line-height:1.05;
+      font-weight:700;
+      margin:0;
+    }
+    .hero h1 span{color:var(--orange)}
+    .hero-sector{
+      color:#b9edc3;
+      font-size:clamp(20px,3vw,30px);
+      font-weight:800;
+      margin-top:10px;
+    }
+    .hero-tagline{
+      font-size:clamp(18px,2vw,24px);
+      color:#e8f0fb;
+      margin:12px 0 20px;
+    }
+    .hero-description{
+      max-width:800px;
+      color:#eaf2fc;
+    }
+    .hero-description strong{color:#fff}
+    .btn-main,.btn-outline{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:13px 23px;
+      border-radius:8px;
+      font-weight:700;
+      margin:5px;
+      transition:.25s;
+    }
+    .btn-main{
+      background:var(--orange);
+      border:2px solid var(--orange);
+      color:#fff;
+    }
+    .btn-main:hover{
+      background:var(--orange-dark);
+      border-color:var(--orange-dark);
+      color:#fff;
+      transform:translateY(-2px);
+    }
+    .btn-outline{
+      color:#fff;
+      border:2px solid rgba(255,255,255,.75);
+    }
+    .btn-outline:hover{background:#fff;color:var(--blue)}
+
+    /* SECTIONS */
+    .section{padding:82px 0}
+    .section-light{background:var(--light)}
+    .section-heading{text-align:center;margin-bottom:48px}
+    .kicker{
+      color:var(--orange);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:13px;
+      font-weight:800;
+    }
+    .section-heading h2{
+      color:var(--blue);
+      font-size:clamp(30px,4vw,44px);
+      margin:6px 0 12px;
+      font-weight:700;
+    }
+    .section-heading p{max-width:800px;margin:auto;color:var(--muted)}
+
+    /* INTRO */
+    .intro{
+      background:#fff;
+      border-left:6px solid var(--green);
+      border-radius:20px;
+      padding:40px;
+      box-shadow:var(--shadow);
+    }
+    .intro h2{color:var(--blue);font-weight:700}
+    .intro p{color:var(--muted)}
+
+    /* CARDS */
+    .info-card{
+      height:100%;
+      background:#fff;
+      border:1px solid #e4ebf4;
+      border-radius:18px;
+      padding:30px 24px;
+      box-shadow:0 8px 28px rgba(18,63,134,.07);
+      position:relative;
+      overflow:hidden;
+      transition:.3s;
+    }
+    .info-card:before{
+      content:"";
+      position:absolute;
+      left:0;top:0;
+      width:100%;height:4px;
+      background:var(--green);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:.3s;
+    }
+    .info-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 18px 42px rgba(18,63,134,.13);
+    }
+    .info-card:hover:before{transform:scaleX(1)}
+    .icon{
+      width:62px;height:62px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#eaf7ed;
+      color:var(--green);
+      border-radius:15px;
+      font-size:26px;
+      margin-bottom:18px;
+    }
+    .info-card:nth-child(even) .icon{
+      background:#fff2dd;
+      color:var(--orange);
+    }
+    .info-card h3{
+      color:var(--blue);
+      font-size:22px;
+      margin-bottom:10px;
+    }
+    .info-card p{color:var(--muted);margin:0}
+
+    /* AGRICULTURE STORY */
+    .story-img{
+      width:100%;
+      min-height:390px;
+      object-fit:cover;
+      border-radius:22px;
+      box-shadow:var(--shadow);
+    }
+    .story h3{
+      color:var(--green);
+      font-size:30px;
+    }
+    .story p{color:var(--muted)}
+    .story-list{list-style:none;padding:0;margin-top:22px}
+    .story-list li{
+      padding:8px 0;
+      color:var(--blue);
+      font-weight:600;
+    }
+    .story-list i{color:var(--green);margin-right:10px}
+
+    /* AGRICULTURE AREAS */
+    .farm-banner{
+      background:
+        linear-gradient(135deg,rgba(49,148,71,.94),rgba(35,108,51,.94)),
+        url("assets/images/agriculture.png") center/cover;
+      color:#fff;
+      border-radius:24px;
+      padding:65px 35px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+    .farm-banner h2{font-size:clamp(30px,4vw,45px)}
+    .farm-banner p{max-width:760px;margin:12px auto;color:#e7f7e9}
+
+    /* STATS */
+    .stat{
+      height:100%;
+      text-align:center;
+      background:#fff;
+      border-radius:16px;
+      padding:28px 15px;
+      box-shadow:0 8px 25px rgba(0,0,0,.06);
+    }
+    .stat h3{color:var(--green);font-size:42px;margin:0}
+    .stat p{color:var(--muted);margin:5px 0 0}
+
+    /* QUOTE */
+    .quote{
+      padding:65px 25px;
+      border-radius:23px;
+      text-align:center;
+      color:#fff;
+      background:linear-gradient(135deg,var(--blue-dark),var(--blue));
+      overflow:hidden;
+      position:relative;
+    }
+    .quote h2{max-width:850px;margin:auto;font-size:clamp(26px,4vw,40px)}
+    .quote p{color:var(--orange);font-weight:800;margin:18px 0 0;letter-spacing:1px}
+
+    /* CTA */
+    .cta{
+      background:#fff7ea;
+      padding:78px 20px;
+      text-align:center;
+    }
+    .cta h2{color:var(--blue);font-size:clamp(30px,4vw,42px)}
+    .cta p{max-width:760px;margin:12px auto 24px;color:var(--muted)}
+
+    /* FOOTER */
+    footer{background:var(--blue-dark);color:#dce7f8;padding:65px 0 0}
+    footer .brand-text{color:#fff}
+    footer .brand-text span{color:var(--orange)}
+    footer h5{
+      color:#fff;
+      font-family:'Be Vietnam Pro',sans-serif;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+    footer p{color:#c7d5e8}
+    .footer-links{list-style:none;padding:0;margin:0}
+    .footer-links li{margin:8px 0}
+    .footer-links a{color:#c7d5e8;transition:.2s}
+    .footer-links a:hover{color:var(--orange);padding-left:4px}
+    .socials{display:flex;gap:10px}
+    .socials a{
+      width:40px;height:40px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      color:#fff;
+      background:rgba(255,255,255,.1);
+      transition:.25s;
+    }
+    .socials a:hover{background:var(--orange);transform:translateY(-3px)}
+    .footer-bottom{
+      margin-top:45px;
+      padding:20px 0;
+      border-top:1px solid rgba(255,255,255,.12);
+      text-align:center;
+      color:#9eb0c9;
+    }
+    .footer-bottom strong{color:var(--orange)}
+
+    @media(max-width:991px){
+      .navbar-collapse{
+        margin-top:12px;
+        background:#f7faff;
+        padding:10px;
+        border-radius:12px;
+      }
+      .nav-link{margin:2px 0}
+      .hero{min-height:610px}
+    }
+    @media(max-width:767px){
+      .section{padding:60px 0}
+      .intro{padding:28px 22px}
+      .hero{min-height:650px}
+      .hero h1{font-size:45px}
+      .hero-description{font-size:15px}
+      .story-img{min-height:260px}
+      .brand img{width:50px;height:50px}
+      .brand-text{font-size:15px}
+      .farm-banner{padding:45px 22px}
+    }
+  </style>
 </head>
 
-<body style="color: black;">
+<body>
 
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="brand" href="HOME.html">
+      <img src="assets/images/newchat.png" alt="BUSACO Holdings logo">
+      <div class="brand-text">BUSACO HOLDINGS <span>NIG LTD</span></div>
+    </a>
 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+      aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid" style="background-color: #FF9800;">
-      <img src="assets/images/newchat.png" width="80px" alt="">
-      <a style="font-size: 35px; color: blue;" class="nav-link active" aria-current="page" href="HOME.html"><b> BUSACO
-          HOLDINGS NIG LTD</b></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav" id="navvv">
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="HOME.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="petroleum.html">Petroleum</a></li>
+        <li class="nav-item"><a class="nav-link" href="real-estate.html">Real Estate</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#agriculture">Agriculture</a></li>
 
-          <a id="navvy" class="nav-link" href="#" >Home</a>
-          <a id="navvy" class="nav-link" href="#abbt">About Us</a>
-          <a id="navvy" class="nav-link" href="petroleum.html">Petroleum</a>
-          <a id="navvy" class="nav-link" href="real-estate.html">Real Estate</a>
-          <a id="navvy" class="nav-link" href="agriculture.html" style="font-size: 30px; color: white;">Agriculture</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Others
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Finance</a></li>
+            <li><a class="dropdown-item" href="#">Import & Export</a></li>
+            <li><a class="dropdown-item" href="#">Investments</a></li>
+            <li><a class="dropdown-item" href="#">Sustainability</a></li>
+            <li><a class="dropdown-item" href="#">News</a></li>
+            <li><a class="dropdown-item" href="#">Careers</a></li>
+            <li><a class="dropdown-item" href="#contact">Contact Us</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
+<!-- HERO -->
+<section class="hero" id="agriculture">
+  <div class="container hero-content">
+    <span class="eyebrow">BUSACO HOLDINGS • AGRICULTURE SECTOR</span>
 
-          <li class="nav-item dropdown">
-            <a id="navvy" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Others
-            </a>
-            <ul class="dropdown-menu">
-              <li><a id="mavvy" class="dropdown-item" href="#">Finance</a></li>
-              <li><a id="mavvy" class="dropdown-item" href="#">Import & Export</a></li>
-              <li><a id="mavvy" class="dropdown-item" href="#">Investments</a></li>
-              <li><a id="mavvy" class="dropdown-item" href="#">Sustainability</a></li>
-              <li><a id="mavvy" class="dropdown-item" href="#">News</a></li>
-              <li><a id="mavvy" class="dropdown-item" href="#">Careers</a></li>
-              <li><a id="mavvy" class="dropdown-item" href="#mfoot">Contact Us</a></li>
-            </ul>
-          </li>
+    <h1>BUSACO <span>AGRICULTURE</span></h1>
 
+    <div class="hero-sector">GROWING OPPORTUNITIES. FEEDING THE FUTURE.</div>
 
+    <p class="hero-tagline">Cultivating Prosperity. Sustaining Tomorrow.</p>
 
+    <div class="hero-description">
+      <p>
+        At <strong>BUSACO AGRICULTURE</strong>, we are committed to building a stronger agricultural
+        future through sustainable farming, modern agricultural practices, and responsible investment.
+      </p>
+      <p>
+        We combine <strong>innovation, technology, environmental responsibility, and strategic planning</strong>
+        to create productive agricultural opportunities that benefit communities and future generations.
+      </p>
+      <p>
+        From crop production and agribusiness to agricultural investment and value-chain development,
+        our approach is built around <strong>productivity, sustainability, quality, and long-term growth.</strong>
+      </p>
+    </div>
+
+    <div class="mt-4">
+      <a href="#services" class="btn-main">
+        <i class="fa-solid fa-wheat-awn"></i> Explore Agriculture
+      </a>
+      <a href="#contact" class="btn-outline">
+        <i class="fa-solid fa-phone"></i> Contact Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="intro">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-5">
+          <div class="kicker">Our Approach</div>
+          <h2>Building a Sustainable Agricultural Future</h2>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            At BUSACO Holdings, agriculture is more than farming. It is about creating food security,
+            supporting livelihoods, developing businesses, and building sustainable economic opportunities.
+          </p>
+          <p class="mb-0">
+            Through innovation, responsible land use, modern farming methods, and strategic investment,
+            we aim to contribute to a productive and resilient agricultural sector.
+          </p>
         </div>
       </div>
     </div>
-  </nav>
-  <!-- Header end -->
+  </div>
+</section>
 
-  <br>
+<!-- AGRICULTURE SERVICES -->
+<section class="section section-light" id="services">
+  <div class="container">
+    <div class="section-heading">
+      <div class="kicker">What We Do</div>
+      <h2>Our Agriculture Services</h2>
+      <p>
+        Building opportunities across the agricultural value chain through sustainable and modern solutions.
+      </p>
+    </div>
 
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-wheat-awn"></i></div>
+          <h3>Crop Production</h3>
+          <p>Supporting productive crop farming through responsible practices, efficient planning, and modern agricultural techniques.</p>
+        </div>
+      </div>
 
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-cow"></i></div>
+          <h3>Livestock</h3>
+          <p>Developing sustainable livestock opportunities with a focus on productivity, quality, and responsible management.</p>
+        </div>
+      </div>
 
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-tractor"></i></div>
+          <h3>Farm Development</h3>
+          <p>Planning and developing agricultural projects with efficient systems, infrastructure, and long-term productivity in mind.</p>
+        </div>
+      </div>
 
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Agricultural Investment</h3>
+          <p>Identifying strategic opportunities that support agricultural growth, value creation, and sustainable investment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- AGRICULTURAL VALUE CHAIN -->
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="kicker">Beyond The Farm</div>
+      <h2>Strengthening the Agricultural Value Chain</h2>
+      <p>
+        Our agricultural vision extends from production to processing, distribution, markets, and investment.
+      </p>
+    </div>
 
-<!-- ================================================= -->
-<!-- BUSACO HOLDINGS - AGRICULTURE PAGE                -->
-<!-- HEADER AND FOOTER ARE NOT INCLUDED                -->
-<!-- ================================================= -->
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-seedling"></i></div>
+          <h3>Production</h3>
+          <p>Creating productive farms using responsible and sustainable agricultural practices.</p>
+        </div>
+      </div>
 
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-gears"></i></div>
+          <h3>Processing</h3>
+          <p>Supporting value addition that can improve product quality, market opportunities, and economic value.</p>
+        </div>
+      </div>
 
-<!-- 1. AGRICULTURE INTRODUCTION -->
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Distribution</h3>
+          <p>Connecting agricultural products to markets through efficient supply and distribution systems.</p>
+        </div>
+      </div>
 
-<p style="text-align: center; font-size: 30px;">
-    <b style="color: blue;">THE AGRICULTURE SECTOR</b>
-</p>
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-store"></i></div>
+          <h3>Market Access</h3>
+          <p>Creating stronger connections between producers, businesses, communities, and consumers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p style="text-align: center; font-size: 15px;">
-    <b style="color: orange;">Growing Opportunities. Cultivating the Future.</b>
-</p>
-
-<br>
-
-<p id="bh">
-    At <b style="color: blue;">BUSACO AGRICULTURE</b>, we are committed to
-    developing sustainable agricultural opportunities that support food
-    production, create economic value, and contribute to a stronger future.
-    We combine <b>responsible farming, strategic planning, innovation,
-    and sustainable development</b> to create lasting value.
-</p>
-
-<p id="bh">
-    From crop production and livestock farming to agricultural development
-    and investment, our agriculture activities are designed around
-    <b>quality, productivity, sustainability, and long-term growth.</b>
-</p>
-
-<br><br>
-
-<!-- Buttons -->
-
-<div style="text-align: center;">
-
-    <a href="HOME.html">
-        <button id="mybu" class="col-sm-3">
-            Explore Agriculture
-        </button>
+<!-- FARM BANNER -->
+<section class="container pb-5">
+  <div class="farm-banner">
+    <div class="kicker" style="color:#ffc15b;">OUR AGRICULTURAL VISION</div>
+    <h2>From Farm to Future</h2>
+    <p>
+      We believe agriculture can become a powerful engine for economic growth, food security,
+      employment, innovation, and community development.
+    </p>
+    <a href="#contact" class="btn-main">
+      <i class="fa-solid fa-handshake"></i> Partner With Us
     </a>
-
-    <a href="#mfoot">
-        <button id="mybu" class="col-sm-3">
-            Contact Us
-        </button>
-    </a>
-
-</div>
-
-
-
-<!-- ================================================= -->
-<!-- 2. ABOUT AGRICULTURE SECTION                       -->
-<!-- ================================================= -->
-
-<!-- AGRICULTURE FARM SECTION -->
-
-<section class="busaco-farm-section">
-
-    <div class="container">
-
-        <div class="row align-items-center g-4">
-
-            <!-- FARM IMAGE -->
-            <div class="col-lg-7 col-md-12 col-12">
-
-                <div class="farm-image-box">
-
-                    <img src="./assets/images/agriculture.png"
-                         alt="BUSACO Holdings Modern Agriculture"
-                         class="farm-image">
-
-                </div>
-
-            </div>
-
-
-            <!-- TEXT -->
-            <div class="col-lg-5 col-md-12 col-12">
-
-                <div class="farm-content">
-
-                    <p class="farm-label">
-                        BUSACO AGRICULTURE
-                    </p>
-
-                    <h2>
-                        Growing Today.
-                        <span>Building Tomorrow.</span>
-                    </h2>
-
-                    <p>
-                        At BUSACO Holdings, we see agriculture as more
-                        than farming. We see it as an opportunity to
-                        create sustainable businesses, strengthen
-                        communities, and build lasting value.
-                    </p>
-
-                    <p>
-                        Through modern agricultural practices,
-                        strategic investment, and responsible
-                        development, we are building opportunities
-                        for a productive and sustainable future.
-                    </p>
-
-                    <a href="#mfoot">
-                        <button id="mybu">
-                            Discover BUSACO Agriculture
-                        </button>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+  </div>
 </section>
 
-
-<!-- ================================================= -->
-<!-- 3. OUR AGRICULTURE SERVICES                        -->
-<!-- ================================================= -->
-
-<section class="container py-5">
-
-    <div class="text-center mb-5">
-
-        <h2>
-            Our Agriculture Services
-        </h2>
-
-        <p>
-            Explore our range of agricultural solutions designed
-            to create sustainable growth and lasting value.
-        </p>
-
+<!-- WHY BUSACO -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-heading">
+      <div class="kicker">Why BUSACO</div>
+      <h2>The BUSACO Agriculture Advantage</h2>
+      <p>
+        A forward-thinking agricultural approach built around productivity, sustainability, and lasting impact.
+      </p>
     </div>
-
 
     <div class="row g-4">
-
-
-        <!-- CROP PRODUCTION -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-
-                    <h3 class="card-title">
-                        🌾 Crop Production
-                    </h3>
-
-                    <p class="card-text">
-                        Sustainable crop production focused on quality,
-                        productivity, responsible farming, and reliable
-                        agricultural output.
-                    </p>
-<br><br><br>
-                    
-
-                    <a href="HOME.html">
-                        <button id="mybu">
-                            Learn More
-                        </button>
-                    </a>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-tractor"></i></div>
+          <h3>Modern Farming</h3>
+          <p>Embracing improved techniques, technology, and efficient systems to support agricultural productivity.</p>
         </div>
+      </div>
 
-
-
-        <!-- LIVESTOCK FARMING -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-
-                    <h3 class="card-title">
-                        🐄 Livestock Farming
-                    </h3>
-
-                    <p class="card-text">
-                        Responsible livestock farming opportunities
-                        designed to support agricultural growth and
-                        contribute to a reliable food supply.
-                    </p>
-
-                    <br>
-
-                    <a href="HOME.html">
-                        <button id="mybu">
-                            Learn More
-                        </button>
-                    </a>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Sustainability</h3>
+          <p>Promoting responsible agricultural practices that protect resources and support long-term productivity.</p>
         </div>
+      </div>
 
-
-
-        <!-- AGRICULTURAL DEVELOPMENT -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-
-                    <h3 class="card-title">
-                        🚜 Agricultural Development
-                    </h3>
-
-                    <p class="card-text">
-                        We develop agricultural opportunities through
-                        strategic planning, productive land use,
-                        modern practices, and sustainable development.
-                    </p>
-<br>
-                    <a href="HOME.html">
-                        <button id="mybu">
-                            Learn More
-                        </button>
-                    </a>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Community Impact</h3>
+          <p>Creating opportunities for communities through agricultural development, jobs, partnerships, and enterprise.</p>
         </div>
+      </div>
 
-
-
-        <!-- AGRICULTURAL INVESTMENT -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-
-                    <h3 class="card-title">
-                        📊 Agricultural Investment
-                    </h3>
-
-                    <p class="card-text">
-                        Strategic agricultural investment opportunities
-                        focused on sustainable growth, economic value,
-                        and long-term development.
-                    </p>
-
-                    <br>
-
-                    <a href="HOME.html">
-                        <button id="mybu">
-                            Learn More
-                        </button>
-                    </a>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <h3>Long-Term Growth</h3>
+          <p>Building agricultural projects and opportunities with a focus on resilience, value creation, and future growth.</p>
         </div>
-
-
+      </div>
     </div>
-
+  </div>
 </section>
 
-
-
-<!-- ================================================= -->
-<!-- 4. WHY CHOOSE BUSACO AGRICULTURE                   -->
-<!-- ================================================= -->
-
-<section class="container py-5">
-
-    <div class="text-center mb-5">
-
-        <h2>
-            Why Choose BUSACO Agriculture?
-        </h2>
-
-        <p>
-            We are committed to developing agricultural opportunities
-            that create sustainable and lasting value.
-        </p>
-
+<!-- STORY -->
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="kicker">Our Vision</div>
+      <h2>The BUSACO Agriculture Story</h2>
+      <p>
+        We are building an agricultural future where innovation and responsible development work together
+        to create lasting prosperity.
+      </p>
     </div>
 
+    <div class="row g-5 align-items-center story">
+      <div class="col-lg-6">
+        <img src="assets/images/agriculture.png" class="story-img" alt="BUSACO Agriculture">
+      </div>
+
+      <div class="col-lg-6">
+        <h3>Growing With Purpose</h3>
+        <p>
+          Agriculture sits at the heart of sustainable development. Our goal is to support agricultural
+          initiatives that increase productivity, strengthen value chains, encourage investment, and
+          create meaningful opportunities.
+        </p>
+
+        <ul class="story-list">
+          <li><i class="fa-solid fa-check"></i> Sustainable Agricultural Development</li>
+          <li><i class="fa-solid fa-check"></i> Modern Farming Practices</li>
+          <li><i class="fa-solid fa-check"></i> Agricultural Investment</li>
+          <li><i class="fa-solid fa-check"></i> Community Empowerment</li>
+          <li><i class="fa-solid fa-check"></i> Long-Term Food & Economic Security</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-heading">
+      <div class="kicker">Our Impact</div>
+      <h2>Growing Opportunities</h2>
+      <p>Creating agricultural opportunities that can transform communities and industries.</p>
+    </div>
 
     <div class="row g-4">
-
-
-        <!-- SUSTAINABLE PRACTICES -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-
-                    <h3 class="card-title">
-                        Sustainable Practices
-                    </h3>
-
-                    <p class="card-text">
-                        We promote responsible agricultural practices
-                        that support productivity while protecting
-                        resources for the future.
-                    </p>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="stat">
+          <h3>10+</h3>
+          <p>Years of Sustainable Growth</p>
         </div>
+      </div>
 
-
-
-        <!-- QUALITY PRODUCTION -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-
-                    <h3 class="card-title">
-                        Quality Production
-                    </h3>
-
-                    <p class="card-text">
-                        We focus on quality agricultural production
-                        with attention to efficiency, reliability,
-                        and responsible management.
-                    </p>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="stat">
+          <h3>50+</h3>
+          <p>Communities Empowered</p>
         </div>
+      </div>
 
-
-
-        <!-- INNOVATION -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-
-                    <h3 class="card-title">
-                        Innovation
-                    </h3>
-
-                    <p class="card-text">
-                        We embrace modern ideas and agricultural
-                        approaches that can improve productivity
-                        and create new opportunities.
-                    </p>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="stat">
+          <h3>100+</h3>
+          <p>Projects & Opportunities</p>
         </div>
+      </div>
 
-
-
-        <!-- LONG TERM VALUE -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 text-center shadow-sm">
-
-                <div class="card-body">
-
-                    <h3 class="card-title">
-                        Long-Term Value
-                    </h3>
-
-                    <p class="card-text">
-                        Our agricultural initiatives are designed
-                        to create lasting economic and social value
-                        for the future.
-                    </p>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="stat">
+          <h3>∞</h3>
+          <p>Opportunities Ahead</p>
         </div>
-
-
+      </div>
     </div>
-
+  </div>
 </section>
 
-
-
-<!-- ================================================= -->
-<!-- 5. AGRICULTURAL AREAS                              -->
-<!-- ================================================= -->
-
-<section class="container py-5">
-
-    <div class="text-center mb-5">
-
-        <h2>
-            Our Agricultural Areas
-        </h2>
-
-        <p>
-            Exploring opportunities across key areas of agriculture.
-        </p>
-
+<!-- CORE VALUES -->
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="kicker">What Guides Us</div>
+      <h2>Our Agricultural Values</h2>
+      <p>Principles that guide our approach to agriculture and sustainable development.</p>
     </div>
-
 
     <div class="row g-4">
-
-
-        <!-- CROP FARMING -->
-
-        <div class="col-lg-4 col-md-6 col-12">
-
-            <div class="card h-100 shadow-sm">
-
-                <img src="./assets/images/crop farming.png"
-                     class="card-img-top"
-                     alt="Crop Farming">
-
-                <div class="card-body text-center">
-
-                    <h3 class="card-title">
-                        Crop Farming
-                    </h3>
-
-                    <p class="card-text">
-                        Productive crop farming focused on quality,
-                        efficiency, responsible practices, and
-                        sustainable agricultural development.
-                    </p>
-
-                    <a href="HOME.html">
-                        <button id="mybu">
-                            Explore
-                        </button>
-                    </a>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-seedling"></i></div>
+          <h3>Sustainability</h3>
+          <p>Protecting natural resources while building productive agricultural systems for the future.</p>
         </div>
+      </div>
 
-
-
-        <!-- LIVESTOCK -->
-
-        <div class="col-lg-4 col-md-6 col-12">
-
-            <div class="card h-100 shadow-sm">
-
-                <img src="./assets/images/livestock.png"
-                     class="card-img-top"
-                     alt="Livestock Farming">
-
-                <div class="card-body text-center">
-
-                    <h3 class="card-title">
-                        Livestock Farming
-                    </h3>
-
-                    <p class="card-text">
-                        Responsible livestock production supporting
-                        agricultural development, food supply, and
-                        long-term economic opportunities.
-                    </p>
-
-                    <a href="HOME.html">
-                        <button id="mybu">
-                            Explore
-                        </button>
-                    </a>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3>Innovation</h3>
+          <p>Using new ideas, technology, and modern methods to improve agricultural productivity.</p>
         </div>
+      </div>
 
-
-
-        <!-- AGRICULTURAL INVESTMENT -->
-
-        <div class="col-lg-4 col-md-6 col-12">
-
-            <div class="card h-100 shadow-sm">
-
-                <img src="./assets/images/agriculture investment.png"
-                     class="card-img-top"
-                     alt="Agricultural Investment">
-
-                <div class="card-body text-center">
-
-                    <h3 class="card-title">
-                        Agricultural Investment
-                    </h3>
-
-                    <p class="card-text">
-                        Strategic opportunities for individuals and
-                        organizations interested in agricultural growth
-                        and sustainable investment.
-                    </p>
-
-                    <a href="HOME.html">
-                        <button id="mybu">
-                            Explore
-                        </button>
-                    </a>
-
-                </div>
-
-            </div>
-
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-handshake"></i></div>
+          <h3>Collaboration</h3>
+          <p>Working with farmers, businesses, investors, and communities to create shared value.</p>
         </div>
+      </div>
 
-
+      <div class="col-lg-3 col-md-6">
+        <div class="info-card">
+          <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Integrity</h3>
+          <p>Building agricultural partnerships through transparency, responsibility, and trust.</p>
+        </div>
+      </div>
     </div>
-
+  </div>
 </section>
 
-
-
-<!-- ================================================= -->
-<!-- 6. AGRICULTURAL INVESTMENT SECTION                 -->
-<!-- ================================================= -->
-
+<!-- QUOTE -->
 <section class="container py-5">
-
-    <div class="row align-items-center">
-
-
-<!-- ================================================= -->
-<!-- 8. OUR AGRICULTURAL VISION                         -->
-<!-- ================================================= -->
-
-<section class="container py-5">
-
-    <div class="text-center mb-5">
-
-        <p style="color: orange; font-weight: bold;">
-            OUR VISION
-        </p>
-
-        <h2>
-            Growing Today. Building Tomorrow.
-        </h2>
-
-        <p>
-            We believe agriculture is more than farming.
-            It is an opportunity to create sustainable businesses,
-            strengthen communities, and build lasting value.
-        </p>
-
-    </div>
-
-
-    <div class="row align-items-center g-5">
-
-        <!-- IMAGE -->
-
-        <div class="col-lg-6 col-md-12">
-
-            <img src="./assets/images/modern1.png"
-                 class="img-fluid rounded shadow-sm"
-                 alt="Modern Agriculture">
-
-        </div>
-
-
-        <!-- TEXT -->
-
-        <div class="col-lg-6 col-md-12">
-
-            <h2>
-                From the Soil to the Future
-            </h2>
-
-            <p>
-                BUSACO Holdings is focused on developing agricultural
-                opportunities that combine productivity, innovation,
-                and responsible resource management.
-            </p>
-
-            <p>
-                By investing in modern agricultural practices and
-                strategic opportunities, we aim to contribute to
-                food production while creating sustainable economic value.
-            </p>
-
-            <div class="row mt-4">
-
-                <div class="col-6">
-
-                    <h3 style="color: blue;">
-                        Quality
-                    </h3>
-
-                    <p>
-                        Focused on productive and responsible
-                        agricultural development.
-                    </p>
-
-                </div>
-
-                <div class="col-6">
-
-                    <h3 style="color: blue;">
-                        Growth
-                    </h3>
-
-                    <p>
-                        Creating opportunities for long-term
-                        agricultural development.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+  <div class="quote">
+    <h2>“Growing opportunities. Empowering communities. Feeding the future.”</h2>
+    <p>BUSACO HOLDINGS — AGRICULTURE</p>
+  </div>
 </section>
 
-
-
-<!-- ================================================= -->
-<!-- 9. AGRICULTURE VALUE CHAIN                         -->
-<!-- ================================================= -->
-
-<section class="container py-5">
-
-    <div class="text-center mb-5">
-
-        <p style="color: orange; font-weight: bold;">
-            OUR APPROACH
-        </p>
-
-        <h2>
-            Creating Value Across the Agricultural Chain
-        </h2>
-
-        <p>
-            We look beyond production to identify opportunities
-            across different stages of the agricultural value chain.
-        </p>
-
-    </div>
-
-
-    <div class="row g-4 text-center">
-
-
-        <!-- PRODUCTION -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 shadow-sm">
-
-                <div class="card-body">
-
-                    <h1 style="color: blue;">
-                        01
-                    </h1>
-
-                    <h3>
-                        Production
-                    </h3>
-
-                    <p>
-                        Supporting productive crop and livestock
-                        farming opportunities.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PROCESSING -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 shadow-sm">
-
-                <div class="card-body">
-
-                    <h1 style="color: blue;">
-                        02
-                    </h1>
-
-                    <h3>
-                        Processing
-                    </h3>
-
-                    <p>
-                        Exploring opportunities to transform
-                        agricultural products into higher-value goods.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- DISTRIBUTION -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 shadow-sm">
-
-                <div class="card-body">
-
-                    <h1 style="color: blue;">
-                        03
-                    </h1>
-
-                    <h3>
-                        Distribution
-                    </h3>
-
-                    <p>
-                        Connecting agricultural products with
-                        markets and consumers efficiently.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- INVESTMENT -->
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="card h-100 shadow-sm">
-
-                <div class="card-body">
-
-                    <h1 style="color: blue;">
-                        04
-                    </h1>
-
-                    <h3>
-                        Investment
-                    </h3>
-
-                    <p>
-                        Identifying strategic opportunities that
-                        can create long-term agricultural value.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!-- 10. AGRICULTURE BY THE NUMBERS                     -->
-<!-- ================================================= -->
-
-<section class="container py-5">
-
-    <div class="text-center mb-5">
-
-        <p style="color: orange; font-weight: bold;">
-            OUR FOCUS
-        </p>
-
-        <h2>
-            Agriculture With Purpose
-        </h2>
-
-    </div>
-
-
-    <div class="row text-center g-4">
-
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="p-4">
-
-                <h1 style="color: blue;">
-                    01
-                </h1>
-
-                <h4>
-                    Sustainable Growth
-                </h4>
-
-                <p>
-                    Supporting responsible agricultural development.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="p-4">
-
-                <h1 style="color: blue;">
-                    02
-                </h1>
-
-                <h4>
-                    Food Security
-                </h4>
-
-                <p>
-                    Contributing to reliable agricultural production.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="p-4">
-
-                <h1 style="color: blue;">
-                    03
-                </h1>
-
-                <h4>
-                    Innovation
-                </h4>
-
-                <p>
-                    Exploring modern approaches to agriculture.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-lg-3 col-md-6 col-12">
-
-            <div class="p-4">
-
-                <h1 style="color: blue;">
-                    04
-                </h1>
-
-                <h4>
-                    Long-Term Value
-                </h4>
-
-                <p>
-                    Building agricultural opportunities for the future.
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!-- 11. PARTNER WITH BUSACO                            -->
-<!-- ================================================= -->
-
-<section class="container py-5">
-
-    <div class="row align-items-center">
-
-        <div class="col-lg-8 col-md-12">
-
-            <p style="color: orange; font-weight: bold;">
-                PARTNER WITH US
-            </p>
-
-            <h2>
-                Let's Grow Something Bigger Together.
-            </h2>
-
-            <p>
-                BUSACO Holdings welcomes partnerships with farmers,
-                businesses, investors, organizations, and other
-                stakeholders interested in creating opportunities
-                within the agricultural sector.
-            </p>
-
-        </div>
-
-
-        <div class="col-lg-4 col-md-12 text-lg-end text-center mt-4 mt-lg-0">
-
-            <a href="#mfoot">
-
-                <button id="mybu">
-                    Partner With BUSACO
-                </button>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!-- 12. AGRICULTURE QUOTE / BRAND MESSAGE              -->
-<!-- ================================================= -->
-
-<section class="container py-5 text-center">
-
-    <div class="p-5">
-
-        <h2>
-            "Planting Opportunities.<br>
-            Growing Value. Creating the Future."
-        </h2>
-
-        <p style="color: orange; font-weight: bold;">
-            BUSACO HOLDINGS — AGRICULTURE
-        </p>
-
-    </div>
-
-</section>
-
-
-
-        <!-- TEXT -->
-
-        <div class="col-lg-7 col-md-12">
-
-            <h2>
-                Invest in Agriculture. Grow With the Future.
-            </h2>
-
-            <p>
-                Agriculture presents opportunities to contribute to
-                food production, economic development, and sustainable
-                growth. BUSACO Holdings identifies and develops
-                agricultural opportunities designed to create value
-                for investors and communities.
-            </p>
-
-            <p>
-                Through responsible planning, strategic development,
-                and sustainable practices, we aim to build agricultural
-                ventures that support long-term growth.
-            </p>
-
-            <a href="HOME.html">
-                <button id="mybu">
-                    Explore Investment Opportunities
-                </button>
-            </a>
-
-        </div>
-
-
-        <!-- IMAGE -->
-
-        <div class="col-lg-5 col-md-12 mt-4 mt-lg-0">
-
-            <img src="./assets/images/agriculture investment.png"
-                 class="img-fluid rounded"
-                 alt="Agricultural Investment">
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!-- 7. FINAL CALL TO ACTION                            -->
-<!-- ================================================= -->
-
-<section class="container py-5 text-center">
-
-    <h2>
-        Let's Grow the Future Together
-    </h2>
-
-    <p class="mx-auto">
-        Whether you are interested in agricultural development,
-        farming opportunities, or agricultural investment,
-        BUSACO Holdings is ready to help you take the next step.
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="kicker">Let's Grow Together</div>
+    <h2>Let’s Build a Better Agricultural Future</h2>
+    <p>
+      Whether you are interested in agricultural investment, farming partnerships, development,
+      or business opportunities, BUSACO Holdings is ready to build the future with you.
     </p>
 
-    <div class="mt-4">
+    <a href="#services" class="btn-main">
+      <i class="fa-solid fa-wheat-awn"></i> Explore Agriculture
+    </a>
 
-        <a href="HOME.html">
-            <button id="mybu" class="col-sm-3">
-                Explore Agriculture
-            </button>
+    <a href="#contact" class="btn-main">
+      <i class="fa-solid fa-handshake"></i> Partner With Us
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="container">
+    <div class="row g-5">
+
+      <div class="col-lg-4">
+        <a class="brand" href="HOME.html">
+          <img src="assets/images/newchat.png" alt="BUSACO Holdings logo">
+          <div class="brand-text">BUSACO HOLDINGS <span>NIG LTD</span></div>
         </a>
 
-        <a href="#mfoot">
-            <button id="mybu" class="col-sm-3">
-                Contact Us
-            </button>
-        </a>
+        <p class="mt-3">
+          Powering industries, growing prosperity, and building the future through strategic,
+          sustainable opportunities.
+        </p>
+
+        <p><i class="fa-regular fa-envelope me-2"></i><strong>Email:</strong> busakabir@gmail.com</p>
+        <p><i class="fa-solid fa-phone me-2"></i><strong>Phone:</strong> +234 8037 730 037, +447 405 864 313</p>
+        <p>
+          <i class="fa-solid fa-location-dot me-2"></i>
+          <strong>Address:</strong> Busaco Estate, 12B High Street, Grays, RM17 6LU, United Kingdom
+        </p>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="HOME.html">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="petroleum.html">Petroleum</a></li>
+          <li><a href="real-estate.html">Real Estate</a></li>
+          <li><a href="#agriculture">Agriculture</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <h5>Explore</h5>
+        <ul class="footer-links">
+          <li><a href="#">Finance</a></li>
+          <li><a href="#">Import & Export</a></li>
+          <li><a href="#">Investments</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4">
+        <h5>Connect With Us</h5>
+        <p>Follow BUSACO Holdings and stay connected with our agricultural journey.</p>
+
+        <div class="socials">
+          <a href="https://www.facebook.com/" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://x.com/" aria-label="X">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
 
     </div>
 
-</section>
+    <div class="footer-bottom">
+      <strong>Growing Opportunities. Empowering Communities. Feeding the Future.</strong>
+      <br>
+      <small>© 2026 BUSACO Holdings Nigeria Limited. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
 
-
-
-      <!-- footer -->
-      <section id="mfoot" style="background-color: #FF9800;">
-        <footer class="footer-section text-black" style="background-color: #FF9800;">
-          <div class="container" style="background-color: #FF9800;">
-            <div class="row g-4">
-              <div class="col-lg-4 text-black">
-                <a class="navbar-brand d-flex align-items-center mb-3" href="#">
-                  <img src="assets/images/newchat.png" width="70px" alt="">
-                  <a id="blg" style="font-size: 20px; color: blue;" class="nav-link active" aria-current="page"
-                    href="HOME.html"><b> BUSACO HOLDINGS NIG LTD</b></a>
-                </a>
-                <p class="mb-2"><i class="fa-regular fa-envelope me-2"></i><b>Email:</b> busakabir@gmail.com</p>
-                <p class="mb-2"><i class="fa-solid fa-phone me-2"></i><b>Phone:</b> +234 8037 730 037, +447 405 864 313
-                </p>
-                <p><i class="fa-solid fa-location-dot me-2"></i><b>Address:</b> Busaco Estate,
-                  12B High street
-                  Grays, <br>
-                  RM17, 6LU, 
-                  United Kingdom</p>
-              </div>
-              <div class="col-6 col-lg-2 offset-lg-2 col-md-12 text-black"><b>
-                  <a href="Home.html" id="bnav" style="color: blue;">Home</h6>
-                    <a href="petroleum.html" id="bnav" style="color: blue;">Petroleum</a>
-                    <a href="online.html" id="bnav" style="color: blue;">Real Estate</a>
-                    <a href="#testimonials" id="bnav" style="color: blue;">Import & Export</a>
-                    <a href="#testimonials" id="bnav" style="color: blue;">Sustainabilty</a>
-                    <a href="#testimonials" id="bnav" style="color: blue;">Careers</a>
-                    <a href="#pricing" id="bnav" style="color: blue;">Our FAQ</a></b>
-              </div>
-              <div class="col-6 col-lg-2 col-md-12"><b>
-                  <a href="ux.html" id="bnav" style="color: blue;">About Us</h6>
-                    <a href="#" id="bnav" style="color: blue;">Agriculture</a>
-                    <a href="#" id="bnav" style="color: blue;">Finance</a>
-                    <a href="#" id="bnav" style="color: blue;">Investments</a>
-                    <a href="#" id="bnav" style="color: blue;">News</a>
-                    <a href="#" id="bnav" style="color: blue;">Contact Us</a></b>
-              </div>
-
-              <div class="col-lg-2 text-black">
-                <h6 style="color: black;">Social Profiles</h6>
-                <div class="d-flex gap-2">
-
-                  <a href="https://www.facebook.com/photo.php?fbid=122166461390890505&set=pb.61576715161181.-2207520000&type=3"
-                    class="footer-social"><i class="fa-brands fa-facebook-f"></i></a>
-                  <a href="x.com" class="footer-social"><i class="fa-brands fa-twitter"></i></a>
-                  <a href="instagram.com" class="footer-social"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-              </div>
-              <div class="footer-bottom">
-                <p style="color: blue;"><b>Powering Industries. Growing Prosperity. Building the Future.</b></p>
-              </div>
-            </div>
-        </footer>
-      </section>
-
-      <script src="BUSACO.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="BUSACO.js"></script>
 
 </body>
-
 </html>
